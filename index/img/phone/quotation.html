@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行情</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/quotation.css">
+</head>
+<body>
+    <div class="main">
+        <div class="title pr">
+            行情
+            <img src="img/ssIcon.png" class="pa" alt="">
+        </div>
+        <div class="nav cl">
+            <div class="z navClick" onclick="navClick(0)">自选</div>
+            <div class="z" onclick="navClick(1)">全部</div>
+        </div>
+        <div class="select z">
+            <div class="z selectClick" onclick="coinClick(0)">USDT</div>
+            <div class="z" onclick="coinClick(1)">HUSD</div>
+            <div class="z" onclick="coinClick(2)">BTC</div>
+            <div class="z" onclick="coinClick(3)">ETH</div>
+            <div class="z" onclick="coinClick(4)">HT</div>
+        </div>
+        <div class="listTitle z">
+            <div class="z">名称<img src="img/soft.png"></div>
+            <div class="z">最新价格<img src="img/soft.png"></div>
+            <div class="y">涨跌幅<img src="img/soft.png"></div>
+        </div>
+        <div class="allList z pr">
+            <div class="z listBlock">
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+            </div>
+            <div class="z listBlock">
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+            </div>
+            <div class="z listBlock">
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+            </div>
+            <div class="z listBlock">
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+            </div>
+            <div class="z listBlock">
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad riseBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="z listBox">
+                    <div class="listLeft z">
+                        <div class="name">ETH<span>/HUSD</span></div>
+                        <div class="num">24H量 <span>30295</span></div>
+                    </div>
+                    <div class="listMiddle z">
+                        <div class="unit ellipse">3363.66</div>
+                        <div class="unitPrice ellipse">$21121.22</div>
+                    </div>
+                    <div class="listRight z">
+                        <div class="uad fallBgColor"><span>+</span>33.23%</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/com.js"></script>
+<script>
+    footerShow(1);
+    $(".main").css({
+        height:$(window).height()-60
+    });
+    $(".allList").css({
+        height:$(window).height()-60-44-52-34-40
+    });
+    $(".listBlock").eq(0).css({left:'0'});
+
+
+    function navClick(index){
+        $(".nav div").removeClass('navClick');
+        $(".nav div").eq(index).addClass('navClick');
+    }
+
+    var showNowPage = 0;
+
+    function coinClick(index){
+        $(".select div").removeClass('selectClick');
+        $(".select div").eq(index).addClass('selectClick');
+
+        if(showNowPage != index){
+            $(".allList").scrollTop('0');
+            $(".listBlock").eq(showNowPage).animate({
+                left:'-100%'
+            },250);
+            $(".listBlock").eq(index).css({left:'100%'});
+            $(".listBlock").eq(index).animate({
+                left:'0%'
+            },250);
+            showNowPage = index;
+        }
+    }
+</script>
+</html>

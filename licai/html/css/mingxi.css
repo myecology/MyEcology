@@ -1,0 +1,106 @@
+body{
+    background-color: #fafafa;
+}
+.main{
+    width:100%;
+    overflow:hidden;
+    overflow-y:auto;
+    /*padding:15px;*/
+    padding-bottom:15px;
+}
+.mainTop{
+    background-image: url('../img/b2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    box-sizing: content-box;
+}
+.moneyCount{
+    font-size: 14px;
+    color:#ebbb70;
+    text-align: left;
+    line-height: 20px;
+    height: 50px;
+    padding: 0 15px;
+}
+.moneyCount p{
+    line-height:30px;
+    font-size:22px;
+    color:#ebbb70;
+}
+.moneyCount span{
+    margin-left:10px;
+    font-weight: bold;
+}
+.box{
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 10px 15px;
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+}
+.title{
+    font-size:14px;
+    font-weight:bold;
+    line-height:30px;
+    border-bottom:1px solid #e6e6e6;
+    padding-bottom: 5px;
+}
+.titleState{
+    height:20px;
+    border-radius:10px;
+    width:80px;
+    line-height:20px;
+    text-align: center;
+    margin: 5px 0;
+}
+.titleStateOver{
+    color:#fff;
+    background-color:#9a9a9a;
+}
+.mes{
+    width:50%;
+    line-height:20px;
+    color:#383f39;
+}
+.box>.mes:nth-child(1) .z{
+    border-right:1px solid #ccc;
+}
+.stateColor{
+    color:#ebbb70;
+    font-weight: bold;
+}
+.boxMes .z{
+    text-align:left;
+}
+.boxMes .y{
+    text-align: right;
+}
+.boxMes{
+    margin:10px 0;
+}
+.hint{
+    text-align: left;
+    line-height: 30px;
+    height: 30px;
+    color: #d0cfcd;
+}
+.titleStateIng{
+   background-color:#ebbb70;
+    color:#fff;
+}
+.mak{
+    position: absolute;
+    right: -3px;
+    top: -2px;
+    width: 90px;
+}
+.boxMes>.mes:nth-child(1){
+    border-right:1px solid #ccc;
+}
+.boxMes>.mes:nth-child(2){
+   padding-left:5%;
+}

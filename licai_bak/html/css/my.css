@@ -1,0 +1,179 @@
+body{
+    background-color:#fafafa;
+}
+.main{
+    padding:0 15px;
+}
+.mainTop{
+    border-radius:6px;
+    padding:10px 0;
+    margin-top:15px;
+}
+.mainTop >a{
+    display: block;
+    width:48%;
+    border-radius:5px;
+    overflow: hidden;
+    box-shadow:0 0 10px #f3f3f3;
+    text-align:center;
+    font-size:12px;
+    color:#5d5d5d;
+    padding:10px 0;
+    background-color:#fff;
+}
+.mainTop p{
+    height:24px;
+    line-height:24px;
+}
+.mainTop img{
+    display: block;
+    margin:auto;
+    width:45%;
+    margin-bottom:5px;
+}
+.ti{
+    margin:15px 10%;
+}
+.ti>div{
+    letter-spacing:1px;
+    width:50%;
+    height: 36px;
+    line-height: 36px;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    font-size:12px;
+    text-align:center;
+    color:#ebbb70;
+    border:1px solid #ebbb70;
+    z-index:2;
+}
+.ti>.selectD{
+    background-color:#ebbb70;
+    color:#fff;
+}
+.ti >div:first-child{
+    border-top-left-radius:8px;
+    border-bottom-left-radius:8px;
+}
+.ti >div:last-child{
+    border-top-right-radius:8px;
+    border-bottom-right-radius:8px;
+}
+.mak_1{
+    width: 32%;
+    left: 9%;
+    top: -16%;
+}
+.mak_2{
+    width: 32%;
+    right: 9%;
+    top: -16%;
+}
+.boxTitle{
+    font-size:14px;
+    font-weight:bold;
+    line-height:30px;
+    height: 40px;
+    border-bottom:1px solid #e9e7e4;
+}
+.boxTitle .z{
+    width: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    padding-right:170px;
+}
+.boxTitle .y{
+    font-size: 12px;
+    color: #d0cfcd;
+    text-align: left;
+    width: 165px;
+ }
+.box{
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-top: 15px;
+    box-shadow: 0 0 1px #ccc;
+}
+.mes{
+    width:50%;
+    line-height:20px;
+    border-right:1px solid #e9e7e4;
+}
+.boxMes .mes:last-child{
+    border-right:0;
+    padding-left:20px;
+}
+.boxMes .z{
+    text-align:left;
+}
+.boxMes .y{
+    text-align:right;
+}
+.boxMes{
+    color:#2e3844;
+}
+.state_2 .stateColor{
+    color:#ebbb70;
+    font-weight:bold;
+}
+.state_1 .stateColor{
+    color:#ebbb70;
+    font-weight:bold;
+}
+.rt{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+.rt img{
+    position:absolute;
+    top: 0;
+    bottom:0;
+    margin:auto;
+    height:14px;
+}
+.title{
+    margin:25px 0;
+    font-weight: bold;
+    font-size:26px;
+}
+.boxYj{
+    color:#000;
+    line-height: 40px;
+    font-weight: bold;
+}
+.boxYjsy{
+    color:#ebbb70;
+    line-height: 40px;
+    font-weight:bold;
+}
+.yjBox{
+    width:100%;
+}
+.mexT{
+    color:#000;
+    line-height: 20px;
+    font-size:12px;
+}
+.mexMoney{
+    color:#ebbb70;
+    line-height: 20px;
+    font-size:12px;
+}
+.boxTitle .z{
+    padding-right:0;
+    position:static;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.boxTitle{
+    height:auto;
+}

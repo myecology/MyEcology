@@ -1,0 +1,219 @@
+body{
+    background-color: #f8fcfe;
+}
+
+.main{
+    padding:15px;
+    overflow: hidden;
+    overflow-y:auto;
+}
+.mainTop{
+    background-image: url('/images/modules-bank/bg_3.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width:100%;
+    height:155px;
+    padding: 25px 25px;
+}
+.money{
+    font-size:12px;
+    color:#006fec;
+    text-align: left;
+    line-height:24px;
+    height:50px;
+}
+.box{
+    display: block;
+    background-color:#fff;
+    box-shadow:0 0 5px #ccc;
+    border-radius:6px;
+    padding:10px 15px;
+    margin:15px 8px 15px 8px;
+    color:#000;
+}
+.title{
+    font-size:14px;
+    font-weight:bold;
+    line-height:30px;
+    border-bottom:1px solid #e6e6e6;
+    padding-bottom: 5px;
+    color:#000;
+}
+.titleState{
+    height:20px;
+    border-radius:10px;
+    width:80px;
+    line-height:20px;
+    text-align: center;
+    margin: 5px 0;
+}
+.titleStateOver{
+    color:#fff;
+    background-color:#9a9a9a;
+}
+.mes{
+    width:50%;
+    line-height:20px;
+    color:#383f39;
+}
+.stateColor{
+    color:#006fec;
+}
+.boxMes{
+    margin:10px 0;
+}
+.titleStateIng{
+    background-image:url('/images/modules-bank/st_2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color:#fff;
+}
+.mak{
+    position: absolute;
+    right: -3px;
+    top: -2px;
+    width: 90px;
+}
+.moenyState{
+    width:100%;
+    text-align:left;
+    line-height:20px;
+}
+.moenyState p{
+    width:50%;
+}
+.txBut{
+    background-image:url('/images/modules-bank/st_2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    width: 126px;
+    margin-top: 5px;
+    position:relative;
+    z-index:2;
+}
+.mak{
+    right: -8px;
+    top: 0px;
+    width: 142px;
+    height: 48px;
+}
+.txMask{
+    position:absolute;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,.8);
+    z-index:3;
+}
+.boxT{
+    color:#000;
+    font-weight: bold;
+    line-height:30px;
+    font-size: 16px;
+}
+.boxMoney{
+    line-height:20px;
+}
+.boxHint{
+    color:#006fec;
+    font-size:12px;
+    line-height:20px;
+    margin-top:15px;
+    margin-bottom: 15px;
+}
+.box2{
+    height:155px;
+    background-color:#fff;
+    box-shadow:0 0 5px #ccc;
+    border-radius:6px;
+    padding:0;
+    width:80%;
+    text-align: center;
+    padding-top:15px;
+}
+.cancal{
+    height:40px;
+    width:50%;
+    border-top:1px solid #ccc;
+    border-right: 1px solid #ccc;
+    line-height:40px;
+    font-size:14px;
+}
+.sure{
+    color:#006fec;
+    height:40px;
+    width:50%;
+    border-top:1px solid #ccc;
+    line-height:40px;
+    font-size:14px;
+}
+.money{
+    color:#006fec;
+    font-size:12px;
+    margin-bottom:25px;
+}
+.dw{
+    font-weight:bold;
+    font-size:32px;
+}
+.zr{
+    width:26%;
+    margin-right:3%;
+}
+.lj{
+    width:30%;
+}
+.myC{
+    display: block;
+    right: 35px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 30px;
+    line-height: 30px;
+    width: 90px;
+    color:#fff;
+    text-align: center;
+    background-image:url('/images/modules-bank/st_2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.mak{
+    right: 29px;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+    height: 44px;
+    width: 102px;
+}
+.more{
+    width:40px;
+    height:30px;
+    display: block;
+    position:absolute;
+    right: 0;
+    top:0;
+}
+.more img{
+    height:14px;
+    position:absolute;
+    right: 0;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+.mesBox .y{
+    text-align: right;
+}
+.stateColor2{
+    color:#006fec;
+    font-size:18px;
+    font-weight: bold;
+}
+.mesBox{
+    margin:15px 0;
+    margin-bottom:5px;
+}

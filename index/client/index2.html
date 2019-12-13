@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title th:text="@{${sysConfig.sys_plant_name}+''}">Title</title>
+    <link href="css/common.css" th:href="@{/client/css/common.css}" rel="stylesheet"/>
+    <link href="css/index.css" th:href="@{/client/css/index.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" th:href="(${sysConfig.sys_log_small} == '') ? @{/img/default_log_small.png} : @{/} + ${sysConfig.sys_log_small}"/>
+</head>
+<body>
+<div class="head"><label th:text="@{${sysConfig.sys_plant_name}+''}"></label></div>
+<div class="main pr">
+    <div class="tan paAuto none">
+        <!--<p class="hy">欢迎充值</p>-->
+        <img th:src="@{/client/img/hycz.png}" src="img/hycz.png" class="hy" alt="">
+        <div class="box cl">
+            <div class="z">
+                充值币种
+            </div>
+            <select th:disabled="${canEdit == false}"  id="thisTokinType" name="thisTokinType" class="y type">
+                <option th:each="tokin : ${allCurrencyList}" th:text="${tokin.fullName}" th:value="${tokin.id}"></option>
+            </select>
+            <p class="hintP"></p>
+        </div>
+        <div class="box cl">
+            <div class="z">
+                充值金额
+            </div>
+            <input th:disabled="${canEdit == false}" name="price" type="number" class="y money" placeholder="充值范围3000CNY-20000CNY之间" th:value="${price}">
+            <p class="hintP"></p>
+        </div>
+        <div class="box cl pr">
+            <div class="z zHint">
+                请选择付款方式
+            </div>
+                <div class="z jg"></div>
+                <img th:if="${sysConfig.other.pay_type_yhk} == 'true'" th:src="@{/client/img/i_3.png}" src="img/i_3.png" class="z ic_1 ic" onclick="selectFun(3)" alt="">
+                <img th:if="${sysConfig.other.pay_type_zfb} == 'true'" th:src="@{/client/img/i_2.png}" src="img/i_2.png" class="z ic_2 ic" onclick="selectFun(1)" alt="">
+                <img th:if="${sysConfig.other.pay_type_wx} == 'true'" th:src="@{/client/img/i_1.png}" src="img/i_1.png" class="z ic_3 ic" onclick="selectFun(2)" alt="">
+                <div class="arrow"></div>
+            <p class="hintP"></p>
+        </div>
+        <div class="box cl">
+            <input type="button" class="y chong" value="立即充值" onclick="preOrder()">
+        </div>
+    </div>
+    <div class="tan2 ">
+        <div class="box_2">
+            <p>第一步:确认购买数量和支付金额</p>
+        </div>
+        <div class="box_3">
+            <span>购买数量：</span>
+            <span id="tokinNum" class="d_1">52554</span>
+        </div>
+        <div  class="box_3">
+            <span>支付金额：</span>
+            <span id="fabiPrice" class="d_1"></span>
+        </div>
+        <div  class="box_3">
+            <span>安全识别码：</span>
+            <span  id="payCode" class="d_1"></span>
+        </div>
+        <div class="box_2">
+            <p>第二步:填写付款人姓名</p>
+        </div>
+        <input name="clientName" type="text" class="cl name" placeholder="请输入真实姓名" value="">
+        <div class="hintP2"></div>
+        <div class="box_4">
+            <input type="checkbox" id="cb" checked="true">
+            <span>已详细阅读安全交易须知和交易提示</span>
+        </div>
+        <div class="hintP2"></div>
+        <div class="ljfk" onclick="mkOrder()">
+            立即付款
+        </div>
+        <div class="hintBox">
+            <div class="hintT">
+                安全交易须知：
+            </div>
+            <div class="hintText">
+                1、每次支平台随机匹配的承兑商不同，同一个承兑商所使用的收款信息也可能不同，<span>请按照每次所显示的付款信息付款</span>，请勿直接打款到之前充值过的账号，<span>否则可能无法到账</span>，造成的损失平台概不负责。<br>
+                2、转账时请勿填写任何备注！包括数字货币、USDT、充值、美金、外汇等字样。<span>否则可能导致承兑商账户和您的账户被冻结</span>，造成的损失平台概不负责。
+            </div>
+            <div class="hintT">
+                交易提醒：
+            </div>
+            <div class="hintText">
+                1、关于<label th:text="@{${sysConfig.sys_plant_name}+''}"></label>是全球首个场景化数字货币兑换平台，撮合数字货币持有者、数字货币需求者进行快速的数字货币兑换，并用担保交易确保兑换的100%安全。<br>
+                2、交易时间段：9：00-21：00，其他时间的交易可能会延迟到下个交易时间段处理。<br>
+                3、到账速度：根据银行结算制度，在工作日的17：00以前，到账速度为实时到账；工作日17：00以后和周末节假日时间，到账速度可能略有延迟。到账时间取决于银行规定，请咨询您的银行。<br>
+                4、重要提示：作为独立公正的数字货币撮合平台，<label th:text="@{${sysConfig.sys_plant_name}+''}"></label>平台坚决反对任何机构和个人利用<label th:text="@{${sysConfig.sys_plant_name}+''}"></label>产品从事不符合各国法律的商业行为。如果您对交易有疑问，或有任何的投诉或建议，请email联系官方客服：[[${sysConfig.sys_plant_email}]]，确保100%回复。<br>
+            </div>
+        </div>
+    </div>
+    <div class="tan3 none">
+        <div class="box_4">
+            <div class="cl b4">
+                <div class="z"><label th:text="@{${sysConfig.sys_plant_name}+''}"></label>收银台</div>
+                <div class="y djsBox">
+                    <div class="z">支付倒计时</div>
+                    <div class="z djs">
+                        15:00
+                    </div>
+                </div>
+            </div>
+            <div class="b5">
+                <div>请购买的USDT已经验证并锁定,承兑商无法自行转移,请放心支付</div>
+                <p>安全识别码:<span id="payCode2"class="sbm"></span></p>
+            </div>
+        </div>
+        <div class="zhifuBox">
+            <div class="tt cl">
+                <div class="z">成交单数:<span id="cdsTotalOrder">3664单</span></div>
+                <div class="y">等级:<span ID="cdsLevel">A+</span></div>
+            </div>
+            <div class="zfBottom">
+                <img id="cdsPayImg" th:src="@{/img/no_img.png}" src="../../../static/img/no_img.png" class="shop none" alt="">
+                <!--<img src="../../static/client/img/zfb.jpg" class="shop none" alt="">-->
+                <div id="cdsPayYhk">
+                    <div class="zfB cl">
+                        <div class="z">姓名:<span id="yhkName"></span></div>
+                        <div class="y">银行卡号:<span id="yhkNo"></span></div>
+                    </div>
+                    <div style="margin-top: 20px;" class="zfB cl">
+                        <div class="z">开户行:<span id="yhkBank"></span></div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;" class="zfB cl">
+                    <div class="z">购买数量:<span id="tokinOrderNum">32</span>USDT</div>
+                    <div class="y">需支付:<span id="fabiOrderPrice">￥387.13</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="btnAll cl">
+            <div id= "back" class="z" onclick="fanhui()">取消订单,返回上一步</div>
+            <div class="y" onclick="tixing()">我已付款,提醒承兑商收款</div>
+        </div>
+        <div class="sl">
+            <label th:text="@{${sysConfig.sys_plant_name}+''}"></label>平台四重保障-你敢付，我敢赔
+        </div>
+        <div class="cnAll cl">
+            <div class="cnBox z">
+                <img th:src="@{/client/img/ic_1.png}" src="img/ic_1.png" class="z" alt="">
+                <div class="cnText">
+                    <div class="cnT">联合担保</div>
+                    <div>
+                        本次交易由<label th:text="@{${sysConfig.sys_plant_name}+''}"></label><br>
+                        和商家提供联合担保
+                    </div>
+                </div>
+            </div>
+            <div class="cnBox z">
+                <img th:src="@{/client/img/ic_1.png}" src="img/ic_1.png" class="z" alt="">
+                <div class="cnText">
+                    <div class="cnT">10倍赔付</div>
+                    <div>
+                        若因承兑商原因产生<br>
+                        损失,平台10倍赔付
+                    </div>
+                </div>
+            </div>
+            <div class="cnBox z">
+                <img th:src="@{/client/img/ic_1.png}" src="img/ic_1.png" class="z" alt="">
+                <div class="cnText">
+                    <div class="cnT">保证金</div>
+                    <div>
+                        承兑商已向<label th:text="@{${sysConfig.sys_plant_name}+''}"></label><br>
+                        平台缴纳足够保证金
+                    </div>
+                </div>
+            </div>
+            <div class="cnBox z">
+                <img th:src="@{/client/img/ic_1.png}" src="img/ic_1.png" class="z" alt="">
+                <div class="cnText">
+                    <div class="cnT">托管锁定</div>
+                    <div>
+                        承兑商出售USDT已托管<br>
+                        锁定在<label th:text="@{${sysConfig.sys_plant_name}+''}"></label>后台
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hintBox">
+            <div class="hintT">
+                安全交易须知：
+            </div>
+            <div class="hintText">
+                1、每次支平台随机匹配的承兑商不同，同一个承兑商所使用的收款信息也可能不同，<span>请按照每次所显示的付款信息付款</span>，请勿直接打款到之前充值过的账号，<span>否则可能无法到账</span>，造成的损失平台概不负责。<br>
+                2、转账时请勿填写任何备注！包括数字货币、USDT、充值、美金、外汇等字样。<span>否则可能导致承兑商账户和您的账户被冻结</span>，造成的损失平台概不负责。
+            </div>
+            <div class="hintT">
+                交易提醒：
+            </div>
+            <div class="hintText">
+                1、关于<label th:text="@{${sysConfig.sys_plant_name}+''}"></label>是全球首个场景化数字货币兑换平台，撮合数字货币持有者、数字货币需求者进行快速的数字货币兑换，并用担保交易确保兑换的100%安全。<br>
+                2、交易时间段：9：00-21：00，其他时间的交易可能会延迟到下个交易时间段处理。<br>
+                3、到账速度：根据银行结算制度，在工作日的17：00以前，到账速度为实时到账；工作日17：00以后和周末节假日时间，到账速度可能略有延迟。到账时间取决于银行规定，请咨询您的银行。<br>
+                4、重要提示：作为独立公正的数字货币撮合平台，<label th:text="@{${sysConfig.sys_plant_name}+''}"></label>平台坚决反对任何机构和个人利用<label th:text="@{${sysConfig.sys_plant_name}+''}"></label>产品从事不符合各国法律的商业行为。如果您对交易有疑问，或有任何的投诉或建议，请email联系官方客服：xxxxxxxxxx，确保100%回复。<br>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ft"></div>
+<div></div>
+</body>
+<!--<script src="js/jquery-2.2.2.min.js"></script>-->
+<script th:src="@{/js/jquery.min.js}" src="js/jquery-2.2.2.min.js"></script>
+<script th:inline="javascript"> var ctx = [[@{/}]]; var captchaType = [[${captchaType}]]; </script>
+<script>
+    if($(window).width()<600){
+        $(".cnBox img").removeClass('z');
+    }
+    $(".main").css({
+        minHeight:$(window).height()-120
+    });
+    $(".djs").text();
+
+    var calRate ='[[${calRate}]]';
+    var pey_set_zfb_in_min = '[[${sysConfig.pey_set_zfb_in_min}]]';
+    var pey_set_zfb_in_max = '[[${sysConfig.pey_set_zfb_in_max}]]';
+    var pey_set_wx_in_min = '[[${sysConfig.pey_set_wx_in_min}]]';
+    var pey_set_wx_in_max = '[[${sysConfig.pey_set_wx_in_max}]]';
+    var pey_set_yhk_in_min = '[[${sysConfig.pey_set_yhk_in_min}]]';
+    var pey_set_yhk_in_max ='[[${sysConfig.pey_set_yhk_in_max}]]';
+
+    var canEdit = '[[${canEdit}]]';
+    var payType = 0;
+    var shopNo = '[[${shopNo}]]';
+    var orderNo = '[[${orderNo}]]';
+    function preOrder() {
+        if($(".type").val() != ''){
+            $(".hintP").eq(0).text("");
+        }else{
+            $(".hintP").eq(0).text("请输入类别");
+            return
+        }
+        if(payType){
+            $(".hintP").eq(2).text("");
+        }else{
+            $(".hintP").eq(2).text("请选择付款方式");
+            return
+        }
+        var thisPayMin=0;
+        var thisPayMax=0;
+        var thisPayName=0;
+        if(payType == 1){
+            thisPayMin = pey_set_zfb_in_min / calRate;
+            thisPayMax = pey_set_zfb_in_max /calRate;
+            thisPayName = '支付宝支付';
+        }
+        if(payType == 2){
+            thisPayMin = pey_set_wx_in_min /calRate;
+            thisPayMax = pey_set_wx_in_max /calRate;
+            thisPayName = '微信支付';
+        }
+        if(payType == 3){
+            thisPayMin = pey_set_yhk_in_min /calRate;
+            thisPayMax = pey_set_yhk_in_max /calRate;
+            thisPayName = '银行卡支付';
+        }
+        if(parseFloat($(".money").val())>=thisPayMin && parseFloat($(".money").val())<=thisPayMax){
+            $(".hintP").eq(1).text("");
+        }else{
+            $(".hintP").eq(1).text("请输入正确的"+thisPayName+"金额范围"+money_format(thisPayMin)+"到"+money_format(thisPayMax));
+            return
+        }
+
+        // $(".d_1").eq(1).text($(".money").val())
+        $.ajax({
+            cache : true,
+            type : "POST",
+            url : ctx + "client/preorder",
+            data : {
+                "shopNo":  shopNo,
+                "orderNo":  orderNo,
+                "currencyNo":  $("select[name='thisTokinType']").val(),
+                "price":  $("input[name='price']").val(),
+                "payType":  payType,
+            },
+            async : false,
+            error : function(request) {
+                $.modal.alertError("系统错误");
+            },
+            success : function(data) {
+                if(data.code != 0){
+                    alert(data.msg);
+                    return;
+                }else{
+                    orderData = data;
+                    $("#tokinNum").text(data.tokinNum);
+                    $("#fabiPrice").text(data.fabiPrice);
+                    $("#payCode").text(data.payCode);
+                }
+                $(".tan").hide();
+                $(".tan2").show();
+            }
+        });
+    }
+    function money_format(number){
+        return Math.round(number*100)/100;
+    }
+
+    var orderData;
+    var orderDataDetail;
+    function mkOrder(){
+        if($(".name").val() != ''){
+            $(".hintP2").eq(0).text("");
+        }else{
+            $(".hintP2").eq(0).text("请输真实姓名");
+            return
+        }
+        if($('#cb').is(':checked')){
+            $(".hintP2").eq(1).text("");
+        }else{
+            $(".hintP2").eq(1).text("需同意才能进行下一步");
+            return
+        }
+        $(".tan2").hide();
+
+        $(".shop").eq(0).css({
+            display:'block'
+        })
+
+        $.ajax({
+            cache : true,
+            type : "POST",
+            url : ctx + "client/mkorder",
+            data : {
+                "shopNo":  shopNo,
+                "clientName":  $("input[name='clientName']").val(),
+                "payCode":  orderData.payCode,
+            },
+            async : false,
+            error : function(request) {
+                $.modal.alertError("系统错误");
+            },
+            success : function(data) {
+                if(data.code != 0){
+                    alert(data.msg);
+                    return;
+                }else{
+                    orderDataDetail = data;
+                    $("#payCode2").text(orderData.payCode);
+                    if(payType == 3){
+                        //银行卡支付
+                        $('#cdsPayYhk').show();
+                        $('#cdsPayImg').hide();
+                        //显示银行卡信息
+                        $("#yhkName").text(data.yhkName);
+                        var yhkNo = data.yhkNo.replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");
+                        $("#yhkNo").text(yhkNo);
+                        $("#yhkBank").text(data.yhkBank);
+                    }else{
+                        //支付宝微信支付
+                        if(canEdit){
+                            $('#cdsPayImg').attr('src',data.cdsPayImg);
+                        }else{
+                            $('#cdsPayImg').attr('src','/'+data.cdsPayImg);
+                        }
+                        $('#cdsPayImg').show();
+                        $('#cdsPayYhk').hide();
+                    }
+
+                    $("#cdsTotalOrder").text(data.cdsTotalOrder);
+                    $("#cdsLevel").text(data.cdsLevel);
+                    $("#tokinOrderNum").text(data.tokinNum);
+                    $("#fabiOrderPrice").text(data.fabiPrice);
+                }
+                $(".tan3").show();
+            }
+        });
+    }
+
+    function selectFun(type){
+        $(".arrow").hide().removeClass("arrow1").removeClass("arrow2").removeClass("arrow3");
+        payType = type;
+        $(".hintP").eq(2).text("");
+        switch (type){
+            case 1:
+                $(".arrow").addClass("arrow2").show();
+                break;
+            case 2:
+                $(".arrow").addClass("arrow3").show();
+                break;
+            case 3:
+                $(".arrow").addClass("arrow1").show();
+                break;
+        }
+    }
+
+    function tixing(){
+        $.ajax({
+            cache : true,
+            type : "POST",
+            url : ctx + "client/payedorder",
+            data : {
+                "shopNo":  shopNo,
+                "orderNo":  orderDataDetail.orderNo,
+                "payCode":  orderData.payCode,
+            },
+            async : false,
+            error : function(request) {
+                $.modal.alertError("系统错误");
+            },
+            success : function(data) {
+                if(data.code != 0){
+                    alert(data.msg);
+                    return;
+                }else{
+                    var pickupUrl = data.pickupUrl;
+                    // document.location.href = pickupUrl;
+                    alert("提醒成功")
+                    setTimeout(function() {
+                        // 1秒后跳转
+                        window.location.href = pickupUrl;
+                    }, 1000)
+                }
+            }
+        });
+    }
+
+    function fanhui(){
+        $.ajax({
+            cache : true,
+            type : "POST",
+            url : ctx + "client/cancelorder",
+            data : {
+                "shopNo":  shopNo,
+                "orderNo":  orderDataDetail.orderNo,
+                "payCode":  orderData.payCode,
+            },
+            async : false,
+            error : function(request) {
+                $.modal.alertError("系统错误");
+            },
+            success : function(data) {
+                if(data.code != 0){
+                    alert(data.msg);
+                    $("#back").hide();
+                    return;
+                }else{
+                    $(".tan2").show();
+                    $(".tan3").hide();
+                }
+            }
+        });
+    }
+</script>
+</html>

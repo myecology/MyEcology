@@ -1,0 +1,92 @@
+body{
+    background-color:#fafafa;
+}
+.main{
+    margin:15px 0;
+    /*padding:0 15px;*/
+}
+.titile>div{
+    color:#282625;
+    height:30px;
+    font-size:12px;
+    line-height:30px;
+    /*background-image:url('../img/st_1.png');*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 16%;
+    text-align: center;
+    margin: 0 11%;
+    position: relative;
+    z-index: 2;
+}
+.titile>div:nth-child(2){
+    margin:0 4%;
+}
+.titile>.titileClick{
+    border-bottom:2px solid #ebbb70;
+    /*background-image:url('../img/st_2.png');*/
+    /*color:#fff;*/
+}
+.mak_1{
+    width: 29%;
+    position: absolute;
+    top: -5px;
+    left: 1.5%;
+    height: 40px;
+}
+.mak_2{
+    width: 30%;
+    position: absolute;
+    top: -5px;
+    left: -4%;
+    right:0;
+    margin:auto;
+    height: 40px;
+}
+.mak_3{
+    width: 30%;
+    position: absolute;
+    top: -5px;
+    right: 5.5%;
+    height: 40px;
+}
+.box{
+    background-color:#fff;
+    /*box-shadow:0 0 5px #ccc;*/
+    border-radius:6px;
+    padding:10px 15px;
+    margin-top:15px;
+}
+.boxTitle{
+    height:30px;
+    line-height:30px;
+    border-bottom:1px solid #e6e6e6;
+}
+.boxMes{
+    padding:10px 0;
+    line-height:20px;
+    padding-bottom: 0;
+}
+.boxMes >div{
+    width:50%;
+}
+.boxMes >div:first-child{
+    border-right:1px solid #ccc;
+}
+.boxMes >div:nth-child(2){
+    padding-left:5%;
+}
+.name{
+    font-weight:bold;
+}
+.status_2 .stateColor{
+    color:#a11919;
+    font-weight:bold;
+}
+.status_1 .stateColor{
+    color:#ebbb70;
+    font-weight:bold;
+}
+.ye{
+    color:#ebbb70;
+}

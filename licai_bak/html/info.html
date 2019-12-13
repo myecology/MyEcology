@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>令牌理财</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index1.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="boxTop">
+            <div style="overflow: hidden;">
+                <div class="boxTitle pr">
+                    <div class="titleText ellipse"> </div>
+                </div>
+                <div class="boxHint pr cl">
+                    <div class="z htBox pr">
+                        <div class="hintText">
+                            <img src="img/icon_4.png" alt="">
+                            <div class="lang_24">低风险</div>
+                        </div>
+                    </div>
+                    <div class="z htBox pr">
+                        <div class="hintText">
+                            <div class=" qtN"></div>
+                            <div class=" qt"></div>
+                        </div>
+                    </div>
+                    <div class="z htBox pr">
+                        <div class="hintText">
+                            <img src="img/icon_5.png" alt="">
+                            <div class=" lang_25">定期产品</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="voteContent">
+                <div class="votebox">
+                    <div class="voteImg" style="left:0%">
+                        <p class="voteText"></p>
+                    </div>
+                    <dl class="barbox">
+                        <dd class="barline">
+                            <div w="0" style="width:0px;" class="charts"></div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="absolutelyBox">
+                    <div>
+                        <p class="lang_28"></p>
+                        <p class="absolutelyTotal"></p>
+                    </div>
+                    <div>
+                        <p class="lang_29"></p>
+                        <p class="absolutelyResidual"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="ti lang_0"></div>
+        <div class="boxH cl">
+            <div class="z">
+                <p class="lang_1"></p>
+                <p class="time"></p>
+            </div>
+            <div class="z">
+                <p class="lang_2"></p>
+                <p class="time"></p>
+            </div>
+            <div class="z">
+                <p class="lang_3"></p>
+                <p class="time"></p>
+            </div>
+        </div>
+        <div class="rulesHint">
+            <img src="../img/ic.png" alt="">
+            <span class="lang_4"></span>
+        </div>
+    </div>
+    <div class="box">
+        <div class="de" onclick="lookDe()">
+            <span class="lang_5"></span>
+            <img src="../img/shou.png">
+        </div>
+        <div class="details none">
+            <div class="cl">
+                <div class="z lang_6"></div>
+                <div class="y cpmc">
+                    <!--                        IEC生态共识计划-->
+                </div>
+            </div>
+            <div class="cl">
+                <div class="z lang_7"></div>
+                <div class="y cped">
+                    <!--                        1000000枚IEC-->
+                </div>
+            </div>
+            <div class="cl">
+                <div class="z lang_8"></div>
+                <div class="y qsed">
+                    <!--                        1000枚IEC-->
+                </div>
+            </div>
+            <div class="cl">
+                <div class="z lang_9"></div>
+                <div class="y edsx">
+                    <!--                        100000枚IEC-->
+                </div>
+            </div>
+            <div class="cl">
+                <div class="z lang_10"></div>
+                <div class="y cxq">
+                    <!--                        2018.10.15-2018.10.30-->
+                </div>
+            </div>
+            <div class="cl">
+                <div class="z lang_11"></div>
+                <div class="y sdqx">
+                    <!--                        60天-->
+                </div>
+            </div>
+            <div class="cl">
+                <div class="z lang_12"></div>
+                <div class="y dqsyl">
+                    <!--                        5%-->
+                </div>
+            </div>
+            <!--                <div class="cl">-->
+            <!--                    <div class="z">超级节点收益率</div>-->
+            <!--                    <div class="y ">10%</div>-->
+            <!--                </div>-->
+            <div class="cl">
+                <div class="z lang_13"></div>
+                <div class="y syfpfs">
+                    <!--                        锁仓T+1日为计息日，T+60日一次-->
+                    <!--                        性返回本加息-->
+                </div>
+            </div>
+            <div class="cl">
+                <div class="z lang_14"></div>
+                <div class="y fy lang_23">
+
+                </div>
+            </div>
+            <div class="cl">
+                <div class="z lang_15"></div>
+                <div class="y cpsm">
+                    <!--                        IEC生态共识计划是@YOU平台联合-->
+                    <!--                        IEC项目方以多元化的奖励机制回馈-->
+                    <!--                        社区拥护者，完善社群权益和福利，-->
+                    <!--                        实现多方共赢的共识计划。-->
+                </div>
+            </div>
+        </div>
+        <div class="yj cl">
+            <div class="z">
+                <div class="yjName"></div>
+                <div class="yjNum">
+                    <!--                        120.0000-->
+                </div>
+            </div>
+            <div class="y">
+                <div class="kyName"></div>
+                <div class="yjNum">
+                    <!--                        9099.0000-->
+                </div>
+            </div>
+        </div>
+        <div class="shopInputBox cl pr">
+            <!--                <img src="../img/st2_2.png" class="msk_1 pa none" alt="">-->
+            <!--                <img src="../img/st2_2.png" class="msk_2 pa none" alt="">-->
+            <!--                <img src="../img/st2_2.png" class="msk_3 pa none" alt="">-->
+            <!--                <img src="../img/st2_2.png" class="msk_4 pa none" alt="">-->
+            <div class="z pr" onclick="butClick(0,0.25)">
+                25%
+            </div>
+            <div class="z pr" onclick="butClick(1,0.5)">
+                50%
+            </div>
+            <div class="z pr" onclick="butClick(2,0.75)">
+                75%
+            </div>
+            <div class="z pr" onclick="butClick(3,1)">
+                100%
+            </div>
+        </div>
+        <div class="shop">
+            <div class="shopBox cl pr">
+                <div class="z lang_18"></div>
+                <input type="text" class="y ts" placeholder="请输入数量">
+            </div>
+        </div>
+        <div class="shopBut lang_21" onclick="shopButFun()">
+
+        </div>
+        <div class="shopHint">
+            <img src="../img/ic.png" alt="">
+            <span class="lang_19"></span>
+        </div>
+    </div>
+    </div>
+    <div class="mask none">
+        <div class="shopD pr">
+            <div class="close" onclick="closeMask()">+</div>
+            <p class="lang_20"></p>
+            <div class="num">10000IEC</div>
+            <p class="goodsName">购买30天令牌理财</p>
+            <div class="cl pass">
+                <!-- <div class="z"></div>
+        <div class="z"></div>
+        <div class="z"></div>
+        <div class="z"></div>
+        <div class="z"></div>
+        <div class="z"></div> -->
+                <input class="z" type="password">
+                <input class="z" type="password">
+                <input class="z" type="password">
+                <input class="z" type="password">
+                <input class="z" type="password">
+                <input class="z" type="password">
+            </div>
+            <!-- <div class="errorHint lang_22"></div> -->
+        </div>
+        <div class="jp cl pr">
+            <div class='z mm' onclick="paFun(1)">1</div>
+            <div class='z mm' onclick="paFun(2)">2</div>
+            <div class='z mm' onclick="paFun(3)">3</div>
+            <div class='z mm' onclick="paFun(4)">4</div>
+            <div class='z mm' onclick="paFun(5)">5</div>
+            <div class='z mm' onclick="paFun(6)">6</div>
+            <div class='z mm' onclick="paFun(7)">7</div>
+            <div class='z mm' onclick="paFun(8)">8</div>
+            <div class='z mm' onclick="paFun(9)">9</div>
+            <div class='z ' onclick="closeMask()">关闭</div>
+            <div class='z mm' onclick="paFun(0)">0</div>
+            <div class='z pr' onclick="paFun(10)">
+                <img class="paAuto" style="height:50%;" src="../img/ss1.png" alt="">
+            </div>
+            <p class="pa"></p>
+        </div>
+    </div>
+    <!-- 提示弹框 -->
+    <div class="mask1 none">
+        <div class="maskContent">
+            <div class="maskMsg">
+
+            </div>
+            <div class="but lang_27" onclick="closeMask1()">
+                确定
+            </div>
+        </div>
+    </div>
+    <a href="javascript:history.go(-1);" class="before" style="display:none;">向上一页</a>
+</body>
+<script src="../js/jquery-2.2.2.min.js"></script>
+<script src="../js/com.js"></script>
+<script>
+
+    var langText = [
+        [
+            '锁仓规则',
+            '锁仓日',
+            '计息日',
+            '到期日',
+            '购买后不可撤销,锁定周期60天,到期前不可取出',
+            '产品详情',
+            '理财产品',
+            '理财产品总额',
+            '个人起投额度',
+            '个人购买总额上限',
+            '购买期限',
+            '锁定期限(天)',
+            '日收益率',
+            '收益分配方式',
+            '费用',
+            '产品说明',
+            '预计每日收益',//16
+            '可用资产',//17
+            '理财数量',
+            '锁仓后到期才能解锁',
+            '请输入支付密码',
+            '购买',
+            '密码错误',
+            '无申购、管理费用',
+            '低风险',
+            '定期产品',
+            '枚起投',
+            '确定',       //27
+            '总数量：',
+            '剩余数量：',
+        ],
+        [
+            'Lock up the rules',
+            'Lock up',
+            'Plan breath',
+            'Maturity date',
+            'It is irrevocable after purchase, locked in for 60 days, and cannot be withdrawn before maturity',
+            'Product details',
+            'Financial products',
+            'Total financial products',
+            'Personal line up',
+            'Individual total purchase ceiling',
+            'To purchase',
+            'The lock period(day)',
+            'The return',
+            'Income distribution way',
+            'cost',
+            'The product description',
+            'Projected daily earnings',
+            'Available assets',
+            'Financial number',
+            'After the lock up due to unlock',
+            'Enter the password for payment',
+            'buy',
+            'Password error',
+            'No purchase and management fees',
+            'Low risk',
+            'Regular products',
+            'Minimum throw',
+            'Ok',
+            'Total：',
+            'Remainder：',
+        ],
+        [
+            '鎖倉規則',
+            '鎖倉日',
+            '計息日',
+            '到期日',
+            '購買後不可撤銷,鎖定週期60天,到期前不可取出',
+            '產品詳情',
+            '理財產品',
+            '理財產品總額',
+            '個人起投額度',
+            '個人購買總額上限',
+            '購買期限',
+            '鎖定期限(天)',
+            '日收益率',
+            '收益分配方式',
+            '費用',
+            '產品說明',
+            '預計每日收益',
+            '可用資產',
+            '理財數量',
+            '鎖倉後到期才能解鎖',
+            '請輸入支付密碼',
+            '購買',
+            '密碼錯誤',
+            '無申購、管理費用',
+            '低風險',
+            '定期產品',
+            '起投數',
+            '確定',
+            '總數量：',
+            '剩餘數量：'
+        ]
+    ];
+
+
+    var dataS = {
+        Order: {
+            profit_symbol: '',
+            symbol: '',
+            product_id: '',
+            user_id: '',
+            amount: '',
+            day: '',
+            password: ''
+        }
+    };
+    // var tokenD = sessionStorage.getItem("token");
+    var dw = '';
+    var goods = '';
+    // $(".main,.mask").css({
+    //     height: $(window).height(),
+    //     width: $(window).width()
+    // });
+    $(".mask").css({
+        height: $(window).height(),
+        width: $(window).width()
+    });
+    $(".titleText").css({
+        width: $(window).width() - 60 - 40
+    });
+    $(".jd").animate({
+        width: ($(".loadingNum span").eq(0).text() / $(".loadingNum span").eq(2).text()) * 100 + '%'
+    }, 500);
+    $(".shopInputBox .z").css({
+        marginLeft: ($(window).width() - 60) * 0.12 / 3
+    });
+    $(".shopInputBox .z").eq(0).css({
+        marginLeft: 0
+    });
+    // $(".details .y").css({
+    //     width:$(window).width()-60-90
+    // });
+    function butClick(index, bili) {
+        $(".shopInputBox > div").removeClass('butClick');
+        $(".shopInputBox > div").eq(index).addClass('butClick');
+        $(".shopInputBox img").hide();
+        $(".shopInputBox img").eq(index).show();
+
+        var zc = parseFloat($(".yjNum").eq(1).text());
+        $(".shopBox input").val(zc * bili);
+    }
+    var isShow = false;
+    function lookDe() {
+        if (isShow) {
+            $(".details").hide();
+            $(".de img").removeClass('rotateImg');
+            isShow = false;
+        } else {
+            $(".details").show();
+            $(".de img").addClass('rotateImg');
+            isShow = true;
+        }
+    }
+    function shopButFun() {
+        dataS.Order.amount = $(".shopBox input").val();
+        $(".mask .num").text(dataS.Order.amount + dw);
+
+        $(".goodsName").text(goods);
+        $(".mask").show();
+    }
+    var passLength = 0;
+    function paFun(index) {
+        if (index == 10) {
+            console.log(passLength);
+            if (passLength > 0) {
+                passLength--;
+                $(".pass > input").eq(passLength).val('');
+            } else if (passLength == 0) {
+                $(".pass > input").eq(passLength).val('');
+                passLength = 0;
+            }
+        } else {
+            if (passLength < 6) {
+                $(".pass > input").eq(passLength).val(index);
+                passLength++;
+                if (passLength == 6) {
+                    passLength--;
+                    yzFun();
+                }
+            }
+        }
+    }
+
+    function yzFun() {
+        var mm = '';
+        for (var i = 5; i >= 0; i--) {
+            mm = $(".pass > input").eq(i).val() + mm;
+        }
+        dataS.Order.password = mm;
+        dataS.Order.user_id = user_id;
+        $.ajax({
+            type: "post",
+            url: mainUrl + '/licai/index/add-order?Lang=' + lang,
+            headers: {
+                "authorization": 'Bearer ' + tokenD
+            },
+            data: dataS,
+            success: function (data) {
+                console.log(data);
+                if (data.status == 200) {
+                    // window.location.href = document.referrer;
+                    window.location.href = licaiUrl + '?Lang=' + lang + '&Token=' + tokenD;
+                } else {
+                    errorShow(data.msg, 1500);
+                }
+            },
+            error: function (res) {
+            }
+        });
+
+        if (mm == '123456') {
+            $(".pass > input").val('');
+            $(".mask").hide();
+        } else {
+            passLength = 0;
+            $(".pass > input").val('');
+            // $(".errorHint").css({ opacity: '1' });
+        }
+    }
+    //开启弹框
+    function errorShow(msg, itme) {
+        $('.maskMsg').html(msg)
+        $('.mask1').show()
+        setTimeout(() => {
+            $('.mask1').hide()
+        }, itme)
+    }
+    // var passLength = 0;
+    // function paFun(index){
+    //     if (index==10){
+    //         console.log(passLength);
+    //         if (passLength>0){
+    //             $(".pass > div").eq(passLength).text('');
+    //             passLength--;
+    //         }else if(passLength == 0){
+    //             $(".pass > div").eq(passLength).text('');
+    //             passLength = 0;
+    //         }
+    //     }else{
+    //         if(passLength<6){
+    //             $(".pass > div").eq(passLength).text(index);
+    //             passLength++;
+    //             if (passLength==6){
+    //                 passLength--;
+    //                 yzFun();
+    //             }
+    //         }
+    //     }
+    // }
+
+    // function yzFun(){
+    //     var mm = '';
+    //     for(var i = 5;i>=0;i--){
+    //         mm = $(".pass > div").eq(i).text()+mm;
+    //     }
+    //     dataS.Order.password = mm;
+    //     $.ajax({
+    //         type: "post",
+    //         url:mainUrl + '/licai/index/add-order',
+    //         headers: {
+    //             "authorization": 'Bearer '+tokenD
+    //         },
+    //         data:dataS,
+    //         success: function(data){
+    //             console.log(data.data.status);
+    //             if(data.status == 200){
+    //                 window.location.href = document.referrer;
+    //             }else{
+    //                 errorShow(data.msg,1500);
+    //             }
+    //         },
+    //         error:function(res){
+    //         }
+    //     });
+
+    //     if(mm == '123456'){
+    //         $(".pass > div").text('');
+    //         $(".mask").hide();
+    //     }else{
+    //         passLength = 0;
+    //         $(".pass > div").text('');
+    //         $(".errorHint").css({opacity:'1'});
+    //     }
+    // }
+    function closeMask() {
+        $(".pass > div").text('');
+        $(".mask").hide();
+    }
+    function closeMask1() {
+        $('.mask1').hide()
+    }
+
+    var lang = GetQueryString("Lang");
+    var objId = GetQueryString("id");
+    var profit = GetQueryString('profit_symbol');
+    var user_id = GetQueryString('user_id');
+
+    var langNum = 0;
+    switch (lang) {
+        case 'zh':
+            langNum = 0;
+            break;
+        case 'en':
+            langNum = 1;
+            break;
+        case 'zh_ft':
+            langNum = 2;
+            break;
+    }
+    function animate() {
+        var a;
+        $(".charts").each(function (i, item) {
+            a = parseInt($(item).attr("w"));
+            $(item).animate({
+                width: a + "%"
+            }, 1000);
+        });
+        $('.voteImg').animate({
+            left: a + "%"
+        }, 1000);
+    }
+
+
+    dataS.Order.profit_symbol = profit;
+    $.ajax({
+        type: "get",
+        url: mainUrl + '/licai/index/info?id=' + objId + '&Lang=' + lang,
+        headers: {
+            "authorization": 'Bearer ' + tokenD
+        },
+        success: function (data) {
+            var res = data.data.info;
+            $(".titleText").text(res.name);
+            $(".time").eq(0).text(res.locking_date);
+            $(".time").eq(1).text(res.interest_bearing_day);
+            $(".time").eq(2).text(res.due_date);
+            $(".cpmc").text(res.name);//
+            $(".cped").text(Math.floor(res.max_amount * 100) / 100);//
+            $(".qsed").text(Math.floor(res.min_amount * 100) / 100);//
+            $(".edsx").text(Math.floor(res.user_amount * 100) / 100);//
+            $(".cxq").text(res.duration);//
+            $(".sdqx").text(res.day);//
+            $(".dqsyl").text(res.rate + '%');//
+            $(".syfpfs").text(res.income_description);//
+            $(".cpsm").text(res.description);//
+
+            $(".yjNum").eq(0).text(res.profit + '(' + res.profit_symbol + ')');//
+            $(".yjNum").eq(1).text(res.can_use_amount + '(' + res.symbol + ')');
+
+            console.log(lang);
+            $(".yjName").text(langText[langNum][16]);
+            $(".kyName").text(langText[langNum][17]);
+
+
+            $('.charts').attr('w', res.sales_ratio * 100)
+            $('.voteText').text(res.sales_ratio * 100 + '%')
+            $('.absolutelyTotal').text(res.max_amount)
+            $('.absolutelyResidual').text((res.max_amount - res.amount).toFixed(4))
+            animate();
+
+            $(".qtN").text(Math.floor(res.min_amount * 100) / 100);//
+            $(".qt").text(langText[langNum][26]);           //26
+            dw = res.symbol;
+            goods = res.name;
+
+            dataS.Order.symbol = res.symbol;
+            dataS.Order.product_id = objId;
+            dataS.Order.day = res.day;
+
+            $(".ts").attr('')
+        },
+        error: function (res) {
+        }
+    });
+
+
+    // langNum = 1;
+    for (var y = 0; y <= langText[0].length; y++) {
+        $(".lang_" + y).text(langText[langNum][y]);
+    }
+</script>
+
+</html>

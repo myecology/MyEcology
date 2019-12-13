@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精彩案例</title>
+    <link rel="stylesheet" href="css/an.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/case.css">
+</head>
+<body>
+<div class="header"></div>
+<div class="pr top pr"></div>
+<div class="main wp">
+    <div class="title">40+主流平台强势发行体系</div>
+    <div class="tB cl">
+        <div class="z">
+            <div class="tbZt pr">全网短视频分发</div>
+            <img src="img/caseLeft.png" class="img1 img1F" alt="">
+        </div>
+        <div class="z">
+            <div class="tbYt pr">会议直播过程</div>
+            <img src="img/caseRight.png" class="img2" alt="">
+        </div>
+    </div>
+    <div class="title2">
+        全网平台同步曝光<br>
+        企业品牌永久保存
+    </div>
+    <div class="caseAll cl">
+        <div class="z caseButAll pr">
+            <span class="gdt"></span>
+            <div class="show">
+                今日头条
+            </div>
+            <div>
+                百度
+            </div>
+            <div>
+                爱奇艺
+            </div>
+            <div>
+                微博
+            </div>
+            <div>
+                趣头条
+            </div>
+        </div>
+        <div class="y caseImgAll pr">
+            <img src="img/case_1.png" alt="">
+            <img src="img/case_2.png" alt="">
+            <img src="img/case_3.png" alt="">
+            <img src="img/case_4.png" alt="">
+            <img src="img/case_5.png" alt="">
+        </div>
+    </div>
+</div>
+
+
+<div class="footer">
+    <div class="fm wp">
+        <div class="fmT">联系我们</div>
+        <p class="p_1">抖观是厦门校创客（厦门）科技有限公司会议产品之一</p>
+        <p class="p_2">微信扫码添加 [抖观] 工作人员</p>
+        <div class="mes cl">
+            <div class="z">
+                <img src="img/qr.png" class="z" alt="">
+                <div class="z">
+                    <p class="f_name"><span>彭海伟</span>运营经理</p>
+                    <p class="f_phone"><span>TEL:</span>13164890889（微信同号）</p>
+                    <p class="f_email"><span>Email:</span>532744620@qq.com</p>
+                </div>
+            </div>
+            <div class="y">
+                <img src="img/qr.png" class="z" alt="">
+                <div class="z">
+                    <p class="f_name"><span>谢小小</span>运营经理</p>
+                    <p class="f_phone"><span>TEL:</span>17350830313（微信同号）</p>
+                    <p class="f_email"><span>Email:</span>1923237223@qq.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-2.2.2.min.js"></script>
+<script src="js/com.js"></script>
+<script>
+    setTimeout(function(){
+        $(".img2").addClass('img2F');
+    },5000);
+
+    $(".nav .a2").eq(2).addClass('a2Now');
+
+    var nowShow = 0;
+    var nextShow = '213';
+    var clickState = true;
+    var gdtTop = 0;
+
+
+    var showN = 0;
+
+    var seI = setInterval(function(){
+        showN++;
+        if(showN>4){
+            showN = 0;
+        }
+        $(".caseButAll div").eq(showN).click()
+    },3000);
+
+    $(".caseButAll div").each(function(e){
+        $(".caseButAll div").eq(e).click(function(){
+            if(!clickState){
+                return;
+            }
+            if (nowShow == nextShow ){
+                return;
+            }
+            clickState = false;
+            $(".caseButAll div").removeClass('show');
+            $(".caseButAll div").eq(e).addClass('show');
+
+            $(".caseImgAll img").eq(nowShow).animate({
+                top:'-100%'
+            },500);
+
+            nowShow = e;
+            gdtTop = 42+e*(42+70);
+            $(".caseImgAll img").eq(nowShow).css({
+                top:'100%'
+            });
+
+            setTimeout(function(){
+                $(".caseImgAll img").eq(nowShow).animate({
+                    top:'0'
+                },500);
+            },10);
+
+            setTimeout(function(){
+                clickState = true;
+            },510);
+        });
+    });
+    $(".caseImgAll img").eq(0).css({
+        top:'0'
+    });
+
+    $(".caseButAll").hover(function(){
+        clearInterval(seI);
+    },function(){
+        seI = setInterval(function(){
+            showN++;
+            if(showN>4){
+                showN = 0;
+            }
+            $(".caseButAll div").eq(showN).click()
+        },3000)
+    })
+</script>
+</html>

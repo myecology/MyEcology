@@ -1,0 +1,108 @@
+.title{
+    font-size:36px;
+    text-align: center;
+    color:#333;
+    margin-bottom:75px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+.main{
+    margin-bottom:100px;
+    padding-top:100px;
+}
+.tcTop div{
+     width:300px;
+}
+.tcTopBox{
+    width:300px;
+    height:650px;
+    color:#999999;
+    font-size:14px;
+    margin-right: 33px;
+}
+.tcTop .tcTopBox:nth-child(1){
+    background-image:url('../img/tc_1.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+.tcTop .tcTopBox:nth-child(2){
+    background-image:url('../img/tc_2.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+.tcTop .tcTopBox:nth-child(2) .name{
+    line-height:50px;
+    padding-top:30px;
+}
+.tcTop .tcTopBox:nth-child(3){
+    background-image:url('../img/tc_3.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+.tcTop .tcTopBox:nth-child(4){
+    background-image:url('../img/tc_4.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    margin-right: 0;
+}
+.name{
+    height:160px;
+    color:#fff;
+    line-height:160px;
+    font-size:24px;
+    text-align: center;
+}
+.text{
+    padding-left:10px;
+    line-height:24px;
+    margin-top: 30px;
+}
+.tcTop{
+    width:1300px;
+    margin:auto;
+}
+.tcBottomBox{
+    width:330px;
+    text-align: center;
+    height:530px;
+}
+
+.tcBottomBox1{
+    background-image:url('../img/tc_5.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+.tcBottomBox2{
+    background-image:url('../img/tc_6.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    margin: 0 105px;
+}
+.tcBottomBox3{
+    background-image:url('../img/tc_7.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+.tcBottom .name{
+    height:170px;
+    line-height:170px;
+}
+.tcBottom .text{
+    padding:0;
+    color:#999;
+    line-height: 30px;
+    margin-top: 60px;
+    font-size: 14px;
+}
+.main2{
+    padding-bottom:100px;
+}
+.tcTop{
+    height:650px;
+}
+.tcTopBox,.tcBottomBox{
+    display:none;
+}
+.tcBottom {
+    height:530px;
+}

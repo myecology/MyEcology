@@ -1,0 +1,112 @@
+.main{
+    width:100%;
+}
+.head{
+    width:100%;
+}
+.title{
+    height:48px;
+    line-height: 48px;
+    color:#000;
+    text-align:center;
+    font-size:16px;
+}
+.content{
+    width:95%;
+    margin:auto;
+}
+.mes{
+    height:40px;
+    padding:4px 10px 10px 10px;
+    border-radius:4px;
+    background-color: #f2f2f2;
+}
+.imgBox{
+    width:36px;
+    height: 30px;
+}
+.mes img{
+    width:10px;
+}
+input{
+    height:30px;
+    line-height: 30px;
+    width: 66%;
+}
+.yzm{
+    margin-top: 7px;
+    text-align:center;
+    width:84px;
+    height:20px;
+    border-radius:10px;
+    padding:0 10px;
+    color:#fff;
+    line-height:20px;
+    background-color: #09bb07;
+}
+.yzmNoClick{
+    background-color:#ccc;
+}
+.sub{
+    width:100%;
+    text-align:center;
+    line-height:40px;
+    border-radius:4px;
+    height:40px;
+    background-color:#00bcf3;
+    font-size:14px;
+    color:#fff;
+}
+.content>.cl{
+    margin-bottom:15px;
+}
+.content>.sub{
+    margin-top:30px;
+}
+.mask{
+    position:absolute;
+    top: 0;
+    left: 0;
+    background-color:rgba(0,0,0,.3);
+}
+.maskMain{
+    width:95%;
+    height:150px;
+    text-align:center;
+    border-radius:4px;
+    background-color:#fff;
+}
+.close{
+    width:40px;
+    height:40px;
+    right:0;
+    top: 0;
+}
+.close img{
+    width:40%;
+}
+.maskMain a{
+    display:block;
+    margin:20px auto;
+    background-color: #09bb07;
+    color:#fff;
+    text-align:center;
+    line-height:30px;
+    height: 30px;
+    width:70%;
+    border-radius:4px;
+}
+.maskHint{
+    color:#a8a8a8;
+}
+.maskHint span{
+    color:#09bb07;
+    margin:0 10px;
+}
+.maskTitle{
+    margin-top:20px;
+    margin-bottom:30px;
+}
+.yzmInput{
+    color:#b3b3b3;
+}

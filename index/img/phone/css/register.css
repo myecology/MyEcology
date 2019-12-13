@@ -1,0 +1,237 @@
+body,html{
+    height:100%;
+}
+.mask{
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    background-color:rgba(0,0,0,.5);
+}
+.main,.main2{
+    width:100%;
+    padding:0 5%;
+    padding-top:5%;
+}
+.rt{
+    width: 7%;
+    padding: 5% 0;
+    /* float: left; */
+    box-sizing: content-box;
+}
+.rt img{
+    width:100%;
+}
+.title{
+    color:#ffcc99;
+    font-size:24px;
+    letter-spacing:2px;
+    padding-top:50px;
+}
+.main2 .hint{
+    color:#999;
+}
+.hint{
+    color:#ff6666;
+    font-size:14px;
+    line-height:20px;
+    margin-top:20px;
+}
+.hint img{
+    height: 14px;
+    margin: 3px;
+}
+.region{
+    color: #ffcc99;
+    border: none;
+    font-size:16px;
+    margin-top: 40px;
+    margin-bottom:10px;
+    outline:none;
+}
+.areaCode{
+    color: #ffcc99;
+    border: none;
+    font-size:16px;
+    outline:none;
+    height:30px;
+    line-height:30px;
+}
+.phoneBox{
+    border-bottom:1px solid #ffcc99;
+    height:30px;
+    line-height:30px;
+    margin-top:30px;
+    margin-bottom:50px;
+}
+.phoneBox input{
+    height:30px;
+    font-size:16px;
+    line-height:30px;
+    color:#ffcc99;
+    margin-left:10px;
+}
+.nextBut{
+    color:#1a1a1c;
+    background-color:#ffcc99;
+    height:44px;
+    border-radius:4px;
+    text-align:center;
+    line-height:44px;
+    font-size:18px;
+    margin-bottom:20px;
+}
+.goLogin{
+    font-size:14px;
+    color:#999999;
+    margin-top:50px;
+}
+.goLogin a{
+    color:#ffcc99;
+}
+.emailReg{
+    font-size:14px;
+    margin:30px 0;
+    color:#ffcc99;
+}
+.maskMain{
+    width:100%;
+    height:200px;
+    background-color:#242328;
+    border-top-right-radius:20px;
+    border-top-left-radius:20px;
+    position:absolute;
+    left:0;
+    bottom:0;
+    padding:5%;
+}
+.ti{
+    height:30px;
+    line-height:30px;
+}
+.ti .z{
+    color:#ffcc99;
+    font-size:16px;
+}
+.ti .y{
+    color:#ccc;
+    padding:0 5px;
+    font-size:14px;
+}
+.mes{
+    line-height:30px;
+    color:#ffcc99;
+    border-bottom:1px solid #ffcc99;
+    font-size:14px;
+    margin:20px 0;
+}
+.sendCode{
+    /*background-color:#ffcc99;*/
+    color:#ffcc99;
+}
+.sendCodeClick{
+    background-color:transparent;
+    color:#ccc;
+}
+.mes input{
+    line-height:30px;
+    color:#ffcc99;
+}
+.smsPhone{
+    line-height:30px;
+    color:#ffcc99;
+    margin-top:20px;
+}
+.sub{
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    background-color:#ffcc99;
+    color:#000;
+    font-size:18px;
+    border-radius:4px;
+}
+.passwd input{
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    font-size: 16px;
+    color: #ffcc99;
+    padding-right: 70px;
+    border-bottom: 1px solid #999;
+}
+.del,.show{
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    height:20px;
+    padding: 2px 5px;
+}
+.del img,
+.show img{
+    height:100%;
+}
+.del {
+    right: 40px;
+}
+.passwd{
+    margin-top:40px;
+}
+.invitationCode{
+    color: #999;
+    font-size: 14px;
+    line-height: 30px;
+    height: 30px;
+    margin: 40px 0;
+    margin-bottom: 15px;
+}
+.arrow{
+    border-top: 7px solid #999;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 8px;
+    left: 115px;
+    bottom: 0;
+    margin: auto;
+}
+.invitationCodeInput{
+    display:none;
+    color:#ffcc99;
+    font-size:16px;
+    line-height:30px;
+    height:30px;
+    border-bottom:1px solid #999;
+    width: 100%;
+}
+.agText{
+    font-size:14px;
+    color:#999;
+    line-height:24px;
+}
+.agText span{
+    color:#ffcc99;
+    margin-left:5px;
+}
+.agBox{
+    height:24px;
+    width: 24px;
+    background-color:#333;
+    margin-right:10px;
+}
+.agBox div{
+    width:14px;
+    height:14px;
+    background-color:transparent;
+}
+.agBox .clickAg{
+    background-color:#ffcc99;
+}
+.agree{
+    margin:30px 0;
+}

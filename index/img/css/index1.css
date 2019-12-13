@@ -1,0 +1,618 @@
+.nav{
+    width: 100%;
+    background-color: #242424;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    left: 0;
+}
+.nav img{
+    margin:4px;
+    margin-left:10px;
+}
+.ul{
+    margin:15px 0;
+    margin-right: 40px;
+}
+body,html{
+    width:100%;
+    overflow-x:hidden;
+    letter-spacing: 2px;
+}
+.ul a{
+    display: block;
+    height:50px;
+    line-height:50px;
+    border-bottom:4px solid #242424;
+    font-size:18px;
+    margin:0 15px;
+    color:#fff;
+}
+.ul .nowNav{
+    /*border-bottom:4px solid #0c64c6;*/
+}
+.bg{
+    width:100%;
+}
+.logo2{
+    display: block;
+    margin:40px auto;
+    margin-top:80px;
+}
+.page_1Text {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    line-height: 60px;
+    letter-spacing:6px;
+    font-size: 36px;
+    color: #fff;
+    /*font-weight: bold;*/
+    text-align: center;
+}
+.page_1{
+    background-image:url('../img/b_1.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    overflow: hidden;
+    width:100%;
+    height:860px;
+    margin-top:80px;
+}
+.tp {
+    color: #fff;
+    font-size: 28px;
+    border: 2px solid #fff;
+    text-align: center;
+    width: 260px;
+    border-radius: 25px;
+    height: 50px;
+    line-height: 44px;
+    background-color: #c20000;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom:210px;
+}
+.wpNew{
+    width:90%;
+    max-width:1600px;
+    margin:auto;
+}
+.xian{
+    display:none;
+}
+.page_2{
+    padding:100px 0;
+}
+.title_1{
+    font-size:40px;
+    color:#1d1d1d;
+    text-align: center;
+    margin-bottom:100px;
+}
+.text_1{
+    line-height:40px;
+    color:#1d1d1d;
+    font-size:22px;
+    text-align: center;
+}
+.imgAll{
+    width:680px;
+    margin:auto;
+    margin-top:50px;
+}
+.imgAll img{
+    width:140px;
+    margin:50px 100px;
+}
+.page_3{
+    min-height:940px;
+    padding:220px 0;
+    background-color:#f3f3f3;
+}
+.teamBox{
+    background-color: #fff;
+    box-shadow: 0 0 10px #ccc;
+    color: #1d1d1d;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    width: 31%;
+    height:495px;
+    padding: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.teamBox img {
+    display: block;
+    margin:auto;
+    margin-bottom:40px;
+}
+.teamBox p{
+    font-size:28px;
+    text-align: center;
+    margin:25px 0;
+}
+.teamBox >div{
+    min-height:160px;
+}
+.teamBoxMed{
+    margin: 0 3.5%;
+}
+.page_4{
+    background-image:url('../img/b_2.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    overflow: hidden;
+    min-height:940px;
+}
+.logo3{
+    display: block;
+    margin:40px auto;
+    margin-top:120px;
+    width:110px;
+}
+.text_2{
+    font-size: 36px;
+    line-height: 60px;
+    letter-spacing:4px;
+    color: #fff;
+    text-align: center;
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 130px;
+}
+.page_5{
+    min-height: 940px;
+    padding:100px 0;
+}
+.allBox{
+    margin:auto;
+}
+.teamB{
+    background-color: #f3f3f3;
+    box-shadow: 0 0 10px #ccc;
+    color: #1d1d1d;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    width: 31%;
+    height:495px;
+    padding: 70px 36px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.teamBMed{
+    margin: 0 3.5%;
+}
+.teamBLast .text{
+    /*line-height:32px;*/
+}
+.name{
+    text-align: center;
+    font-size:28px;
+}
+.job{
+    text-align: center;
+    margin: 20px;
+    margin-top:10px;
+}
+.page_6{
+    padding:100px 0;
+    background-color:#242424;
+}
+.page6A{
+    width:700px;
+    margin:auto;
+    height:30px;
+}
+.page6A a{
+    font-size:16px;
+    line-height:30px;
+    width:120px;
+    display: block;
+    color:#fff;
+    text-align: center;
+    height:30px;
+    border-radius:15px;
+    background-color:#36364f;
+    top:0;
+    position:absolute;
+}
+.page6A a:nth-child(1){
+    left:0;
+}
+.page6A a:nth-child(2){
+    left:0;
+    right:0;
+    margin:auto;
+}
+.page6A a:nth-child(3){
+    right:0;
+}
+.ftAll{
+    width:100%;
+    max-width:1200px;
+    margin:30px auto;
+    color:#fff;
+    font-size:20px;
+    text-align: center;
+    margin-top:50px;
+}
+.ftAll img{
+    height:40px;
+    display: block;
+    margin:20px auto;
+}
+.ftBox{
+    font-size:16px;
+    width:25%;
+    text-align: center;
+    color:#fff;
+}
+.ftBox p{
+    line-height:30px;
+}
+.ltText{
+    text-align: center;
+    margin-top:80px;
+    color:#fff;
+    font-size:16px;
+}
+.xian{
+    height: 26px;
+    border-top: 4px solid #0c64c6;
+    border-bottom: 4px solid #0c64c6;
+    width: 30px;
+    top: 16px;
+    right: 10px;
+    margin: auto;
+}
+.xian div{
+    height:4px;
+    width:100%;
+    background-color:#0c64c6;
+}
+
+@media screen and (max-width: 1400px) {
+    .wpNew{
+        width:90%;
+        max-width:1200px;
+        margin:auto;
+    }
+    .teamBox {
+        background-color: #fff;
+        box-shadow: 0 0 10px #ccc;
+        color: #1d1d1d;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+        height: 495px;
+        padding: 85px 30px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .page_3 {
+        padding: 250px 0;
+        background-color: #f3f3f3;
+    }
+    .teamBox p {
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        margin: 5px 0;
+        margin-bottom:20px;
+    }
+    .teamBox img {
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .teamBox >div {
+        min-height:100px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .logo3 {
+        width: 150px;
+        margin-top: 120px;
+        margin-bottom: 100px;
+    }
+    .page_5{
+        padding:50px 0;
+    }
+    .teamB {
+        /*width: 370px;*/
+        height: 495px;
+        padding: 85px 30px;
+        margin-bottom: 30px;
+    }
+
+    .teamBoxMed {
+        /*margin: 0 45px;*/
+    }
+    .teamBMed{
+        /*margin: 0 45px;*/
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .wpNew{
+        width:100%;
+        max-width:1200px;
+        margin:auto;
+    }
+    .page_1{
+        height: 660px;
+        background-image:url('../img/b_11.jpg');
+        margin-top:50px;
+    }
+    .page_4 {
+        min-height: 520px;
+        padding: 40px 0;
+        background-image: url('../img/b_22.jpg');
+    }
+    .nav img{
+        height:40px;
+        margin:5px 10px;
+    }
+    .nav{
+        height:50px;
+    }
+    .ul{
+        overflow: hidden;
+        width:100%;
+        margin-right:0;
+        background-color:#242424;
+        margin-top:0;
+        position: absolute;
+        top: 50px;
+        z-index: 1;
+        height:0;
+        -webkit-transition: all .15s linear;
+        -moz-transition: all .15s linear;
+        -ms-transition: all .15s linear;
+        -o-transition: all .15s linear;
+        transition: all .15s linear;
+    }
+    .ul a {
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    .logo2 {
+        width: 120px;
+        margin-top: 95px;
+        margin-bottom: 25px;
+    }
+    .page_1Text {
+        line-height: 40px;
+        font-size: 28px;
+    }
+    .tp {
+        color: #fff;
+        font-size: 28px;
+        border: 2px solid transparent;
+        text-align: center;
+        width: 260px;
+        border-radius: 25px;
+        height: 50px;
+        line-height: 44px;
+        background-color: #c20000;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: 25%;
+    }
+    .page_2 {
+        padding: 80px 0;
+    }
+    .title_1 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    .text_1 {
+        line-height: 30px;
+        font-size: 16px;
+        text-align: center;
+        width: 90%;
+        margin: auto;
+    }
+    .imgAll {
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .imgAll img {
+        width: 20%;
+        margin: 20px 15%;
+    }
+    .teamBox {
+        background-color: #fff;
+        box-shadow: 0 0 10px #ccc;
+        color: #1d1d1d;
+        font-size: 16px;
+        text-align: left;
+        line-height: 40px;
+        width: 90%;
+        height: 380px;
+        padding: 50px 20px;
+        margin: auto 5%;
+        margin-bottom: 40px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    .page_3 {
+        padding: 80px 0;
+        background-color: #f3f3f3;
+    }
+    .teamBox p {
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+    .teamBox img {
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .teamBox >div {
+        min-height:100px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .logo3 {
+        width:20%;
+        max-width: 120px;
+        margin-top: 20px;
+    }
+    .text_2 {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 40px;
+        width: 90%;
+        margin: auto;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .page_5{
+        padding:50px 0;
+    }
+    .teamB {
+        font-size:16px;
+        width: 90%;
+        margin: 30px 5%;
+        padding: 20px 30px;
+        margin-bottom: 30px;
+        height:auto;
+    }
+    .page6A{
+        width:300px;
+    }
+    .page_6 {
+        padding: 30px 0;
+    }
+    .page6A a {
+        font-size: 12px;
+        line-height: 24px;
+        width: 90px;
+        height: 24px;
+        border-radius: 12px;
+        letter-spacing: 0px;
+    }
+    .p_1{
+        display: none;
+    }
+    .ftBox{
+        font-size:12px;
+        width:80%;
+        margin-left: 30%;
+    }
+    .ftBox p{
+        line-height:28px;
+        margin-left:5%;
+        float: left;
+    }
+    .ftBox img{
+        height: 18px;
+        float: left;
+        margin: 6px auto;
+    }
+    .ftAll{
+        margin-top:20px;
+    }
+    .ltText {
+        margin-top: 30px;
+        font-size: 12px;
+    }
+    .logo2 {
+        width: 120px;
+        margin-top:125px;
+    }
+    .xian div {
+        height: 2px;
+        width: 100%;
+        background-color: #0c64c6;
+    }
+    .xian {
+        height: 18px;
+        border-top: 2px solid #0c64c6;
+        border-bottom: 2px solid #0c64c6;
+        width: 22px;
+        right: 10px;
+        margin: auto;
+        top: 16px;
+        display: block;
+    }
+    .ul .nowNav{
+        border-bottom: 4px solid #242424;
+    }
+
+    .teamBox,.teamB{
+        border-radius:5px;
+    }
+    .teamB{
+        padding-left:20px;
+        padding-right: 20px;
+    }
+    .name{
+        font-size:20px;
+        font-weight: bold;
+    }
+    .logo3{
+        margin-bottom:30px;
+    }
+    .text_2{
+        font-weight: bold;
+    }
+    .page_1Text {
+        line-height: 40px;
+        letter-spacing:2px;
+        font-size: 21px;
+        font-weight:bold;
+    }
+    .tp {
+        color: #fff;
+        font-size: 19px;
+        border: 2px solid transparent;
+        text-align: center;
+        width: 200px;
+        border-radius: 17px;
+        height: 34px;
+        line-height: 30px;
+        background-color: #c20000;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: 28%;
+        font-weight: bold;
+    }
+    .title_1{
+        font-weight: bold;
+    }
+    .teamBox p{
+        margin-bottom:20px;
+        font-weight: bold;
+    }
+    .teamBox{
+        height:auto;
+    }
+    .lg{
+        width: 80px;
+        margin: auto;
+    }
+}
+
+

@@ -1,0 +1,20 @@
+.main{
+    padding:50px 0;
+}
+.main img:nth-child(2){
+    position: absolute;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.main2{
+    color:#2f8ffb;
+    text-align: center;
+    font-size:30px;
+    letter-spacing:1px;
+    padding-bottom:30px;
+}
+
+body{
+    display:none;
+}

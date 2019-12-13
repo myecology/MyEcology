@@ -1,0 +1,346 @@
+body{
+    background-color:#151515;
+    /*background-color:#fff;*/
+}
+
+html,body{
+    height:100%;
+    overflow: hidden;
+}
+.main{
+    height:100%;
+    overflow: hidden;
+    overflow-y:auto;
+    padding-top:50px;
+    padding-bottom: 65px
+}
+.top{
+    height:50px;
+    padding:0 5%;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    background-color:#151515;
+    z-index:2;
+}
+.top img{
+    height:24px;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+.top div{
+    margin:10px;
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    overflow: hidden;
+    background-color:#333333;
+}
+.bannerBox{
+    padding:0 0;
+}
+.bannerBox img{
+    width:90%;
+    display: block;
+    margin:auto;
+}
+.ld{
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    height: 5px;
+    border-radius: 10px;
+    width: 60px;
+    margin: auto;
+}
+.ld div{
+    background-color:#ffcc99;
+    height:5px;
+    border-radius:10px;
+    width:35%;
+    position: absolute;
+    left:0;
+    top:0;
+}
+.pmd{
+    margin-top:5px;
+    height:40px;
+    line-height:40px;
+    padding:0 5%;
+    width: 100%;
+    color:#ffcc99;
+    background-color:#1a1a1c;
+}
+.pmd img{
+    height:16px;
+    margin:12px 0;
+}
+.pmd div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 12%;
+    padding-right: 5%;
+}
+.x{
+    background-color:#1a1a1c;
+}
+.x div{
+    height:1px;
+    background-color:#333;
+    margin:auto;
+    width:90%;
+}
+.tL{
+    width:100%;
+    padding:0 5%;
+    background-color:#1a1a1c;
+}
+.topList{
+    height:100px;
+    overflow: hidden;
+    width:100%;
+    margin:auto;
+}
+.topListSmall{
+    height:100%;
+    width:100%;
+}
+.name{
+    color:#fff;
+    font-size: 12px;
+    line-height:20px;
+}
+.money{
+    font-size: 20px;
+    line-height:20px;
+}
+.percentage{
+    font-size: 12px;
+    line-height:20px;
+}
+
+.money_CNY{
+    line-height:20px;
+    color:#999;
+    font-size: 12px;
+}
+.topListBox{
+    padding:10px 0;
+    text-align: center;
+    top:0;
+    left:100%;
+    position: absolute;
+}
+.operation{
+    width: 100%;
+    padding: 0 5%;
+    margin: 4% 0;
+}
+.operation>a{
+    display: block;
+    width: 47%;
+    border-radius: 4px;
+    background-color: #1a1a1c;
+    padding: 10px 0;
+}
+.t{
+    line-height:20px;
+    font-size:16px;
+    color:#ffcc99;
+}
+.t2{
+    line-height:20px;
+    font-size:10px;
+    color:#999;
+}
+.operation img{
+    height:24px;
+    margin: 8px 8%;
+}
+.allList{
+    width:100%;
+    background-color:#1a1a1c;
+}
+.allTitle{
+    width:100%;
+    font-size: 16px;
+    padding:0 5%;
+}
+.allTitle div{
+    line-height:50px;
+    color:#999;
+    margin-right:15px;
+}
+
+.allTitle .selectType{
+    color:#ffcc99;
+}
+.smallTitle{
+    color:#999;
+    font-size:12px;
+    line-height:40px;
+    width:100%;
+    padding:0 5%;
+}
+.stName{
+    width:35%;
+}
+.stMoney{
+    width:45%;
+}
+.stUAD{
+    text-align: right;
+    width:20%;
+}
+.listBox{
+    width: 100%;
+    padding: 10px 5%;
+    line-height: 30px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    height: 50px;
+}
+.lsAll .listBox:last-child{
+    border-bottom:0;
+}
+.lsName{
+    color:#ffcc99;
+    width:35%;
+    font-size:16px;
+    padding-right:10px;
+}
+.lsName span{
+    font-size:12px;
+    color:#999;
+}
+.lsMoney{
+    color:#ffcc99;
+    font-size:14px;
+    width:45%;
+    padding-right:10px;
+}
+.lsUAD{
+    text-align: center;
+    height:30px;
+    line-height:30px;
+    border-radius:4px;
+    color:#fff;
+    width:20%;
+    background-color:#999;
+}
+
+.leftMain{
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    position: absolute;
+    background-color:rgba(0,0,0,.5);
+    z-index:10;
+}
+.leftBox{
+    height:100%;
+    width:80%;
+    background-color:#1a1a1c;
+    overflow: hidden;
+    overflow-y:auto;;
+}
+.userMes{
+    height:150px;
+    width:100%;
+    background-color:#151515;
+}
+.accountName{
+    color: #ccc;
+    font-size: 24px;
+    line-height: 30px;
+    margin-top: 20%;
+    padding: 0 10%;
+}
+.uid{
+    line-height:20px;
+    font-size:16px;
+    color:#999;
+    padding: 0 10%;
+    margin-top:5px;
+}
+.arrow{
+    border-top:1px solid #999;
+    border-right:1px solid #999;
+    width:10px;
+    height:10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    right: 5%;
+    top: 60%;
+}
+.getCoin,.outCoin{
+    color:#999999;
+    font-size: 14px;
+    text-align: center;
+    width:20%;
+    margin:10px;
+}
+.outCoin img{
+    display: block;
+    margin:auto;
+    width: 55%;
+    margin-bottom: 10px;
+}
+.getCoin{
+    margin-left:0;
+    text-align: left;
+}
+.getCoin img{
+    display: block;
+    width: 55%;
+    margin-bottom: 10px;
+}
+.coin{
+    padding-top:5px;
+    padding-bottom:10px;
+    width:100%;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    padding-left: 10%;
+}
+.orderAll{
+    padding-top:5px;
+    padding-bottom:10px;
+    width:100%;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+.noBo{
+    border-bottom: 0;
+}
+.orderBox{
+    color: #999;
+    font-size: 14px;
+    height: 50px;
+    line-height: 20px;
+    padding: 10px 10%;
+    width: 100%;
+}
+.orderBox img{
+    margin: 5px 0;
+    height: 20px;
+    margin-right: 20px;
+}
+.orderBox img[class='y']{
+    height:14px;
+    margin-top:8px;
+    margin-bottom:8px;
+}
+.orderBox div{
+    line-height:30px;
+}

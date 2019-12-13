@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+<div class="main ">
+    <div class="rt" onclick="returnBeforePage()">
+        <img src="img/arrow.png" alt="">
+    </div>
+    <div class="title">手机注册</div>
+    <div class="cl hint">
+        <img src="img/ic_.png" class="z" alt="">
+        <div class="z">国家或地区注册后不能修改</div>
+    </div>
+    <select class="region">
+        <option value="">中国</option>
+    </select>
+    <div class="phoneBox cl">
+        <select class="areaCode z">
+            <option value="">+86</option>
+        </select>
+        <input type="text" class="z" maxlength="11" placeholder="手机号码">
+    </div>
+    <div class="nextBut" onclick="bindPhone()">
+        下一步
+    </div>
+    <div class="emailReg" onclick="changeWay()">邮箱注册</div>
+    <div class="goLogin">
+        已有账号？<a href="login.html">去登陆</a>
+    </div>
+</div>
+<div class="mask none">
+    <div class="maskMain">
+        <div class="cl ti">
+            <div class="z">安全验证</div>
+            <div class="y" onclick="cancel()">取消</div>
+        </div>
+        <div class="smsPhone ellipse"></div>
+        <div class="mes cl">
+            <input type="text" placeholder="请输入验证码" class="z">
+            <div class="y sendCode">发送验证码</div>
+        </div>
+        <div class="sub" onclick="smsSure()">确认</div>
+    </div>
+</div>
+<div class="main2 none">
+    <div class="rt" onclick="goRegPage()">
+        <img src="img/arrow.png" alt="">
+    </div>
+    <div class="title">设置密码</div>
+    <div class="cl hint">
+        <div class="z">8-20个字符，不可以是纯数字</div>
+    </div>
+    <div class="passwd cl pr">
+        <input type="password" class="z" maxlength="20" onfocus="passFocus(this)" onblur="passBlur(this)" placeholder="请输入密码">
+        <div class="del pa" onclick="delPass(this)">
+            <img src="img/close_1.png" alt="">
+        </div>
+        <div class="show pa" isState="hide" onclick="showPass(this)">
+            <img src="img/lookIcon_2.png" alt="">
+        </div>
+    </div>
+    <div class="passwd cl pr">
+        <input type="password" class="z" maxlength="20"  onfocus="passFocus(this)" onblur="passBlur(this)" placeholder="请输入密码">
+        <div class="del pa" onclick="delPass(this)">
+            <img src="img/close_1.png" alt="">
+        </div>
+        <div class="show pa" isState="hide" onclick="showPass(this)">
+            <img src="img/lookIcon_2.png" alt="">
+        </div>
+    </div>
+    <div class="invitationCode pr" isShow="false" onclick="showInvitation(this)">
+        <div>使用邀请码(选填)</div>
+        <div class="arrow"></div>
+    </div>
+    <input type="text" class="invitationCodeInput" onfocus="passFocus(this)" onblur="passBlur(this)" placeholder="请填写邀请码">
+
+    <div class="agree cl">
+        <div class="z agBox pr" isAg = 'true' onclick="agClick(this)">
+            <div class="paAuto"></div>
+        </div>
+        <div class="z agText">
+            我同意<span>《用户协议及隐私政策》</span>
+        </div>
+    </div>
+
+    <div class="nextBut" onclick="regBut()">
+        注册
+    </div>
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+    function cancel(){
+        $(".mask").hide();
+    }
+
+    function bindPhone(){
+        $(".smsPhone").text($('.phoneBox input').val());
+        $(".mask").show();
+    }
+    var regWay = 'phone';
+//    切换注册方式
+    function changeWay(){
+        if(regWay == 'phone'){
+            $('.areaCode').hide();
+            $(".phoneBox input").val('').attr('placeholder','邮箱号码').removeAttr('maxlength').css({width:'90%'});
+            regWay = 'email';
+        }else{
+            $('.areaCode').show();
+            $(".phoneBox input").val('').attr('placeholder','手机号码').attr('maxlength',11).css({width:'200px'});
+            regWay = 'phone';
+        }
+    }
+
+
+    function showPass(obj){
+        var ob = $(obj);
+        if(ob.attr('isState') == 'hide'){
+            ob.parent().find('input').attr('type','text');
+            ob.attr('isState','show');
+            ob.find('img').attr('src','img/lookIcon.png');
+        }else{
+            ob.parent().find('input').attr('type','password');
+            ob.attr('isState','hide');
+            ob.find('img').attr('src','img/lookIcon_2.png');
+        }
+    }
+
+    function delPass(obj){
+        var ob = $(obj);
+        ob.parent().find('input').val('')
+    }
+
+    function passFocus(obj){
+        $(obj).css({'border-bottom':'1px solid #ffcc99'})
+    }
+
+    function passBlur(obj){
+        $(obj).css({'border-bottom':'1px solid #999'})
+    }
+
+    function agClick(obj){
+        if($(obj).attr('isAg') == 'true'){
+            $(obj).find('div').addClass('clickAg');
+            $(obj).attr('isAg','false');
+        }else{
+            $(obj).find('div').removeClass('clickAg');
+            $(obj).attr('isAg','true');
+        }
+    }
+
+    function smsSure(){
+        $(".main2").show();
+        $('.main,.mask').hide();
+    }
+
+    function regBut(){
+        $(".main2").hide();
+        $(".main").show();
+    }
+
+    function showInvitation(obj){
+        if($(obj).attr('isShow') == 'false'){
+            $(".invitationCodeInput").show();
+            $(obj).attr('isShow','true');
+            $(".arrow").css({
+                'border-top':'7px solid transparent',
+                'border-bottom':'7px solid #ffcc99',
+                top:'-8px'
+            })
+        }else{
+            $(".invitationCodeInput").hide();
+            $(obj).attr('isShow','false');
+            $(".arrow").css({
+                'border-top':'7px solid #999',
+                'border-bottom':'7px solid transparent',
+                top:'8px'
+            })
+        }
+    }
+
+    function goRegPage(){
+        $(".main2").hide();
+        $(".main").show();
+    }
+
+    function returnBeforePage(){
+        window.location.href = document.referrer;
+    }
+</script>
+</html>

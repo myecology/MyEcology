@@ -1,0 +1,141 @@
+.title{
+    color:#ccc;
+    text-align: center;
+    height:44px;
+    line-height:44px;
+    font-size:16px;
+    width:100%;
+}
+.title img{
+    height:24px;
+    top:0;
+    bottom:0;
+    margin:auto;
+    right:5%;
+}
+.nav{
+    width: 100%;
+    height: 32px;
+    padding: 0 5%;
+    margin: 10px 0;
+}
+.nav div{
+    width:20%;
+    text-align: center;
+    line-height:30px;
+    border:1px solid #666666;
+    color:#999;
+    font-size:14px;
+}
+.nav div:first-child{
+    border-right:0;
+}
+.nav .navClick{
+    color:#000;
+    background-color:#ffcc99;
+}
+.select{
+    width:100%;
+    padding:0 10%;
+    height:34px;
+    color:#999;
+    border-bottom:1px solid #666666;
+}
+.select div{
+    width:20%;
+    text-align: center;
+    line-height:34px;
+    height:34px;
+    border-bottom:1px solid transparent;
+}
+.select .selectClick{
+    color:#ffcc99;
+    border-bottom:#ffcc99;
+    border-bottom:1px solid #ffcc99;
+}
+.listTitle{
+    width:100%;
+    color:#666;
+    font-size:14px;
+    padding:0 5%;
+    line-height:20px;
+}
+.listTitle img{
+    height:14px;
+    margin:3px;
+}
+.listTitle .z{
+    padding:10px 0;
+    width:36%;
+}
+.listTitle .y{
+    padding:10px 0;
+    text-align: right;
+    width:28%;
+}
+.listBlock{
+    width:100%;
+}
+.listBox{
+    width:100%;
+    padding:10px 5%;
+    border-bottom:1px solid #333;
+    display: block;
+}
+.listLeft{
+    width:36%;
+    padding-right:5px;
+}
+.listMiddle{
+    width:36%;
+}
+.listRight{
+    width:28%;
+}
+.name {
+    color:#ffcc99;
+    font-size:16px;
+    margin-bottom:2px;
+}
+.name span{
+    color:#666;
+    font-size:10px;
+    margin-left:2px;
+}
+.num{
+    color:#999;
+    line-height:20px;
+    font-size:12px;
+}
+.unit{
+    color:#ffcc99;
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:2px;
+}
+.unitPrice{
+    color:#999;
+    font-size:14px;
+    line-height:20px;
+}
+.uad{
+    color:#fff;
+    width: 90%;
+    height: 36px;
+    font-size:14px;
+    line-height: 36px;
+    border-radius: 4px;
+    text-align: center;
+    float: right;
+    margin: 3px;
+}
+.allList{
+    width:100%;
+    overflow: hidden;
+    overflow-y:auto;
+}
+.listBlock{
+    position:absolute;
+    top:0;
+    left:100%;
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的仓锁</title>
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/my.css">
+</head>
+<body>
+    <div class="main">
+        <div class="mainTop cl">
+            <a href="javascript:void(0)" class="z mingxi">
+                <img src="../img/icon_2.png" alt="">
+                <p class="lang_0"></p>
+            </a>
+            <a href="javascript:void(0)" class="y jyjl">
+                <img src="../img/icon_3.png" alt="">
+                <p class="lang_1"></p>
+            </a>
+        </div>
+        <div class="ti cl pr">
+            <div class="z selectD pr lang_2" onclick="selectFun(0)">
+
+            </div>
+            <div class="y pr lang_3" onclick="selectFun(1)">
+
+            </div>
+        </div>
+        <div class="boxAll">
+            <div class="state_1 cl">
+
+            </div>
+            <div class="state_2 cl none">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-2.2.2.min.js"></script>
+<script src="../js/com.js"></script>
+<script>
+    var aa= '';
+    function selectFun(index){
+        $(".boxAll > div").hide();
+        $(".boxAll > div").eq(index).show();
+        $(".ti img").hide();
+        $(".ti img").eq(index).show();
+        $(".ti div").removeClass('selectD');
+        $(".ti div").eq(index).addClass('selectD');
+    }
+
+    var lang = GetQueryString("Lang");
+    var objId = GetQueryString("user_id");
+    var langNum = 0;
+    switch (lang) {
+        case 'zh':
+            langNum = 0;
+            break;
+        case 'en':
+            langNum = 1;
+            break;
+        case 'zh_ft':
+            langNum = 2;
+            break;
+    }
+
+
+    var langText = [
+        [
+            '理财钱包',
+            '交易记录',
+            '已锁仓令牌',
+            '已解锁令牌',
+            '解锁时间',//4
+            '预计每日收益',
+            '已锁仓',
+            '剩余天数',
+            '解锁时间',
+            '已放入钱包',
+            '已释放收益',
+            '收益锁仓'
+        ],
+        [
+            'Financial purse',
+            'Transaction record',
+            'Locked token',
+            'Unlocked token',
+            'Unlock time',//4
+            'Estimated daily return',
+            'Locked bin',
+            'Remaining days',
+            'Unlock time',
+            'In the wallet',
+            'Released earnings',
+            'Income lock'
+        ],
+        [
+            '理財錢包',
+            '交易記錄',
+            '已鎖倉令牌',
+            '已解鎖令牌',
+            '解鎖時間',//4
+            '預計每日收益',
+            '已鎖倉',
+            '剩余天數',
+            '解鎖時間',
+            '已放入錢包',
+            '已釋放收益',
+            '收益鎖倉'
+        ]
+    ];
+
+    for(var i = 0;i<4;i++){
+        $(".lang_"+i).text(langText[langNum][i])
+    }
+
+    var aa= '';
+    $.ajax({
+        type: "get",
+        url:mainUrl + '/licai/user/index?Lang='+lang+'&user_id='+objId,
+        headers: {
+            "authorization": 'Bearer '+tokenD
+        },
+        success: function(data){
+            $(".jyjl").attr('href','his.html?Lang='+lang+'&user_id='+objId);
+            $(".mingxi").attr('href','mingxi.html?Lang='+lang+'&user_id='+objId);
+           aa = data.data.data.lock;
+            if(data.data.data.lock){
+                for(var i = 0;i<data.data.data.lock.length;i++){
+                    var obj = data.data.data.lock[i];
+
+                    var str = ' <div class="box ellipse">\n' +
+                        '                    <div class="boxTitle pr cl">\n' +
+                        '                        <div class="z">'+obj.name+'</div>\n' +
+                        '                        <div class="y">'+langText[langNum][4]+obj.unlocking_time+'</div>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="yjBox cl">\n' +
+                        '                        <div class="boxYj z">\n'
+                        +langText[langNum][5]+' ('+obj.symbol+')\n' +
+                        '                        </div>\n' +
+                        '                        <div class="boxYjsy y">\n' +
+                                                    obj.daily_earnings +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="boxMes cl">\n' +
+                        '                        <div class="z mes">\n' +
+                        '                            <div class="mexT">'+langText[langNum][6]+'（'+obj.symbol+'）</div>\n' +
+                        '                            <div class="mexMoney">'+obj.locked_warehouse+'</div>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="z mes">\n' +
+                        '                            <div class="mexT">'+langText[langNum][7]+'</div>\n' +
+                        '                            <div class="mexMoney">'+obj.days_remaining+'</div>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>';
+                    $(".state_1").append(str);
+                }
+            };
+            if(data.data.data.unlock){
+                for(var i =0;i<data.data.data.unlock.length;i++){
+                    var obj = data.data.data.unlock[i];
+                    var str =  ' <div class="box">\n' +
+                        '                    <div class="boxTitle pr cl">\n' +
+                        '                        <div class="z ellipse">'+obj.name+'</div>\n' +
+                        '                        <div class="y">'+langText[langNum][8]+obj.unlocking_time+'</div>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="yjBox cl">\n' +
+                        '                        <div class="boxYj z">\n'
+                        +langText[langNum][9]+'('+obj.symbol+')\n' +
+                        '                        </div>\n' +
+                        '                        <div class="boxYjsy y">\n' +
+                                                    obj.put_wallet+
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                    <div class="boxMes cl">\n' +
+                        '                        <div class="z mes">\n' +
+                        '                            <div class="mexT">'+langText[langNum][10]+'（'+obj.symbol+'）</div>\n' +
+                        '                            <div class="mexMoney">'+obj.released+'</div>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="z mes">\n' +
+                        '                            <div class="mexT">'+langText[langNum][11]+'</div>\n' +
+                        '                            <div class="mexMoney">'+obj.revenue_lock+'</div>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>';
+                    $(".state_2").append(str);
+                }
+            };
+        },
+        error:function(res){
+        }
+    });
+
+
+</script>
+</html>

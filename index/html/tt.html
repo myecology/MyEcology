@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+</head>
+<body>
+<div class="header"></div>
+<div class="footer"></div>
+
+</body><script>
+    pushHistory();
+    window.addEventListener("popstate", function(e) {
+       alert('2133')
+    }, false);
+    function pushHistory() {
+        var state = {
+            title: "title",
+            url: "#"
+        };
+        window.history.pushState(state, "title", "#");
+    }
+    // history.pushState(null, null, location.href);
+
+</script>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>申请</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/apply.css">
+</head>
+<body>
+<div class="nav pr">
+    <a href="javascript:history.back(-1)">
+        <img src="../img/arrowLeft.png" class="paAuto" alt="">
+    </a>
+    申请信息填写
+    <div class="tj pa" onclick="applyBtn()">提交</div>
+</div>
+<div class="main">
+    <div class="mes">
+        <div class="mesBox cl">
+            <div class="z">商家名称</div>
+            <input type="text" class="y shopName" maxlength="8" placeholder="最多输入8个字">
+        </div>
+        <div class="mesBox cl">
+            <div class="z">联系人</div>
+            <input type="text" class="y peopleName" maxlength="8" placeholder="最多输入8个字">
+        </div>
+        <div class="mesBox cl">
+            <div class="z">电话号码</div>
+            <input type="text" maxlength="11" placeholder="请输入电话号码" class="y telPhone">
+        </div>
+        <div class="mesBox cl">
+            <div class="z">行业选择</div>
+            <select name="" class="y typeName">
+                <option value="">请选择行业类别</option>
+            </select>
+        </div>
+        <div class="mesBox cl">
+            <div class="z">地区选择</div>
+            <div id="distpicker" class="y">
+                <div class="form-group">
+                    <select class="form-control z" id="province" onchange="province()">
+                        <option value="">省</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control z" id="city" onchange="city()">
+                        <option value="">市</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control z" id="district">
+                        <option value="">区</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="mesBox cl">
+            <div class="z">详细地址</div>
+            <input type="text" placeholder="详细地址" class="y address">
+        </div>
+        <div class="mesBox cl">
+            <div class="z">店铺简介</div>
+            <textarea name="" class="z intro" id="" cols="30" rows="10" maxlength="120" placeholder="请输入简介最多120字"></textarea>
+        </div>
+        <div class="mesBox cl">
+            <div class="z">营业执照</div>
+            <div class="cl"></div>
+            <div class="z addPhoto addPhoto_1 pr">
+                <div class="addPhotoBox">
+                    <img src="../img/add.png" id="tu_11" alt="">
+                </div>
+                <input  type="file"  class="cardImg_1" id="tu_1" onchange="fileSelected('tu_11','tu_1',0)"  name="front_pic_url" accept=".jpg,.png" multiple>
+                <div class="del pa" onclick="delImg(this,'tu_1',0)">+</div>
+            </div>
+            <div class="cl"></div>
+            <div class="loadingUp z">未上传</div>
+        </div>
+        <div class="mesBox cl">
+            <div class="z">店铺照片</div>
+            <div class="cl"></div>
+            <div class="z addPhoto addPhoto_2 p1 pr">
+                <div class="addPhotoBox">
+                    <img src="../img/add.png" id="tu_22" class="storePhoto" alt="">
+                </div>
+                <input  type="file"  class="cardImg_1"  id="tu_2" onchange="fileSelected('tu_22','tu_2',1)"  name="front_pic_url" accept=".jpg,.png" multiple>
+                <div class="del pa" onclick="delImg(this,'tu_2',1)">+</div>
+            </div>
+            <div class="z addPhoto addPhoto_3 p2 pr">
+                <div class="addPhotoBox">
+                    <img src="../img/add.png" id="tu_33" class="storePhoto" alt="">
+                </div>
+                <input  type="file" class="cardImg_1"  id="tu_3" onchange="fileSelected('tu_33','tu_3',2)"  name="front_pic_url" accept=".jpg,.png" multiple>
+                <div class="del pa" onclick="delImg(this,'tu_3',2)">+</div>
+            </div>
+            <div class="loadingUp z">未上传</div>
+            <div class="loadingUp z">未上传</div>
+            <div class="z" style="width:100%;"></div>
+            <div class="z addPhoto addPhoto_4 p3 pr">
+                <div class="addPhotoBox">
+                    <img src="../img/add.png" id="tu_44" class="storePhoto" alt="">
+                </div>
+                <input  type="file" class="cardImg_1"  id="tu_4"   onchange="fileSelected('tu_44','tu_4',3)"  name="front_pic_url" accept=".jpg,.png" multiple>
+                <div class="del pa" onclick="delImg(this,'tu_4',3)">+</div>
+            </div>
+            <div class="z addPhoto addPhoto_5 p4 pr">
+                <div class="addPhotoBox">
+                    <img src="../img/add.png" id="tu_55" class="storePhoto" alt="">
+                </div>
+                <input  type="file" class="cardImg_1"  id="tu_5"  onchange="fileSelected('tu_55','tu_5',4)"  name="front_pic_url" accept=".jpg,.png" multiple>
+                <div class="del pa" onclick="delImg(this,'tu_5',4)">+</div>
+            </div>
+            <div class="loadingUp z">未上传</div>
+            <div class="loadingUp z">未上传</div>
+        </div>
+    </div>
+</div>
+<div class="errorHint">111</div>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/com.js"></script>
+<script>
+    var photo = {
+        'tu_1':'',
+        'tu_2':'',
+        'tu_3':'',
+        'tu_4':'',
+        'tu_5':''
+    };
+
+    var storePhoto = [];
+
+    function fileSelected(data,id,index) {
+
+        var oFile = document.getElementById(id).files[0];
+
+        var rFilter = /^(image\/bmp|image\/gif|image\/jpeg|image\/png|image\/tiff)$/i;
+//
+//        console.log(oFile.size);
+        if (oFile.size>1024*1024*2){
+            errorHintFadeIn('请上传小于2M的图片',1500);
+            return;
+        }
+        var oImage = document.getElementById(data);
+
+        // prepare HTML5 FileReader
+        $(".loadingUp").eq(index).text('上传中');
+        var oReader = new FileReader();
+        oReader.onload = function(e){
+            // e.target.result contains the DataURL which we will use as a source of the image
+            oImage.src = e.target.result;
+
+            // upImages(e.target.result);
+            upImages(oFile,index);
+            oImage.onload = function () {
+            };
+        };
+
+        // read selected file as DataURL
+        oReader.readAsDataURL(oFile);
+    }
+
+    function delImg(obj,num,index){
+        $(obj).parent().find('.addPhotoBox').find('img').attr('src','../img/add.png');
+        $(obj).hide();
+        photo[num] = '';
+        $('.loadingUp').eq(index).text('未上传');
+    }
+
+
+    function applyBtn(){
+        storePhoto = [];
+        var shopName = $('.shopName').val();
+        var peopleName = $('.peopleName').val();
+        var telPhone = $('.telPhone').val();
+        var typeName = $('.typeName').val();
+        var reg = /^1[3|4|5|6|7|8][0-9]\d{8}$/;
+        var province = $("#province").val();
+        var city = $("#city").val();
+        var district = $("#district").val();
+        var address = $(".address").val();
+        var jianjie = $(".intro").val();
+        if (!shopName){
+            errorHintFadeIn('请输入店铺名称',1000);
+            return;
+        }
+        if (!peopleName){
+            errorHintFadeIn('请输入联系人',1000);
+            return;
+        }
+        if (!reg.test(telPhone)) {
+            errorHintFadeIn('请输入正确的手机号',1000);
+            return;
+        }
+        if (!typeName){
+            errorHintFadeIn('请选择行业类别',1000);
+            return;
+        }
+        if (!province){
+            errorHintFadeIn('请选择所在省份',1000);
+            return;
+        }
+        if (!city){
+            errorHintFadeIn('请选择所在城市',1000);
+            return;
+        }
+        if (!district){
+            errorHintFadeIn('请选择所在区域',1000);
+            return;
+        }
+        if (!address){
+            errorHintFadeIn('请填写详细地址',1000);
+            return;
+        }
+        if (!jianjie){
+            errorHintFadeIn('请填写店铺简介',1000);
+            return;
+        }
+        if(!photo['tu_1']){
+            errorHintFadeIn('请上传营业执照',1000);
+            return;
+        }
+        for (var i = 2;i<6;i++){
+            if (photo['tu_'+i]){
+                storePhoto.push(photo['tu_'+i])
+            }
+        }
+        if(!storePhoto.length){
+            errorHintFadeIn('请至少上传一张店铺图片',1000);
+            return;
+        }
+
+
+        var datas ={
+            name:shopName,
+            contact:peopleName,
+            phone:telPhone,
+            type_id:typeName,
+            province_id:province,
+            city_id:city,
+            district_id:district,
+            address:address,
+            introduction:jianjie,
+            license:photo['tu_1'],
+            store_photos:storePhoto
+        };
+
+        createShop(datas)
+    }
+
+    function createShop(datas){
+        $.ajax({
+            type: "POST",
+            url:website+'v1/shop/shop-update',
+            data:datas,
+            success: function(data){
+                console.log(data);
+                switch (data.status){
+                    case 200:
+                        errorHintFadeIn(data.data,1500);
+                        window.location = 'shopsMes.html?token='+tokenT;
+                        break;
+                    default:
+                        errorHintFadeIn(data.data,1500);
+                        break;
+                }
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+
+    /*上传图片*/
+    function upImages(data,id){
+        var formData = new FormData();
+        formData.append('image',data);
+        var datas ={
+            image:data
+        };
+        $.ajax({
+            type: "POST",
+            url:website+'upload/index',
+            // dataType: 'JSON',
+            processData : false,
+            contentType : false,
+            mimeType:"multipart/form-data; charset=utf-8",
+            data:formData,
+            success: function(data){
+                $(".del").eq(id).show();
+                photo['tu_'+(id+1)] = JSON.parse(data).data;
+                $(".del").eq(id).parent().find('.addPhotoBox').find('img').attr('src',JSON.parse(data).data);
+                $('.loadingUp').eq(id).text('已上传');
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+
+    //填充行业类别
+    $.ajax({
+        type: "POST",
+        url:website+'v1/shop/shop-type',
+        // dataType: "json",
+//            data:JSON.stringify(datas),
+        success: function(data){
+            if (data.data){
+                for (var i = 0;i<data.data.length;i++){
+                    var str ='<option value="'+data.data[i].id+'">'+data.data[i].title+'</option>';
+                    $(".typeName").append(str);
+                }
+            }
+        },
+        error:function(res){
+            errorHintFadeIn(res,1000);
+        }
+    });
+
+    //填充省份
+    var p_id = '';
+    var c_id = '';
+    var d_id = '';
+
+    provinceAdd();
+
+    function provinceAdd(){
+        $.ajax({
+            type: "GET",
+            url:website+'v1/area/province',
+            success: function(data){
+                for (var i = 0 ;i<data.data.length;i++){
+                    var str =' <option value="'+data.data[i].id+'">'+data.data[i].name+'</option>';
+                    $("#province").append(str);
+                };
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+    province();
+    function province(){
+        $.ajax({
+            type: "GET",
+            url:website+'v1/area/city?pid='+parseInt($("#province").val()),
+            success: function(data){
+                $("#city option").remove();
+                var firstOp = '<option value="">市</option>';
+                $("#city").append(firstOp);
+                for (var i = 0 ;i<data.data.length;i++){
+                    var str =' <option value="'+data.data[i].id+'">'+data.data[i].name+'</option>';
+                    $("#city").append(str);
+                }
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+
+    function city(){
+        $.ajax({
+            type: "GET",
+            url:website+'v1/area/county?pid='+parseInt($("#city").val()),
+            success: function(data){
+                $("#district option").remove();
+                var firstOp = '<option value="">区</option>';
+                $("#district").append(firstOp);
+                for (var i = 0 ;i<data.data.length;i++){
+                    var str =' <option value="'+data.data[i].id+'">'+data.data[i].name+'</option>';
+                    $("#district").append(str);
+                }
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+
+    showMes();
+    function showMes(){
+        $.ajax({
+            type: "POST",
+            url:website+'v1/shop/update-view',
+            // dataType: "json",
+//            data:JSON.stringify(datas),
+            success: function(data){
+               console.log(data);
+                $(".shopName").val(data.data.name);
+                $(".peopleName").val(data.data.contact);
+                $(".telPhone").val(data.data.phone);
+                $(".address").val(data.data.address);
+                $(".intro").val(data.data.introduction);
+
+                $(".loadingUp").eq(0).text('已上传');
+                $(".del").eq(0).show();
+                $('#tu_11').attr("src",data.data.license);
+
+                photo['tu_1'] = data.data.license;
+
+
+
+                var imgUrl = data.data.store_photos.split(",");
+                for (var i = 0;i< imgUrl.length;i++){
+                    console.log(i)
+                    var imgStr = imgUrl[i];
+                    $(".loadingUp").eq(i+1).text('已上传');
+                    $(".del").eq(i+1).show();
+                    $('.storePhoto').eq(i).attr("src",imgStr);
+                    photo['tu_'+(i+2)]=imgStr;
+                    console.log('tu_'+(i+2))
+                }
+
+                p_id = data.data.province_id;
+                console.log(p_id)
+                c_id = data.data.city_id;
+                d_id = data.data.district_id;
+                $('.typeName option[value='+data.data.tyep_id+']').prop("selected",true);
+                setTimeout(function(){
+                    $('#province option[value='+p_id+']').prop("selected",true);
+                },100);
+                upCity(p_id,c_id);
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+
+
+
+
+    function upCity(id,dId){
+        console.log(id);
+        $.ajax({
+            type: "GET",
+            url:website+'v1/area/city?pid='+id,
+            success: function(data){
+                for (var i = 0 ;i<data.data.length;i++){
+                    var str =' <option value="'+data.data[i].id+'">'+data.data[i].name+'</option>';
+                    $("#city").append(str);
+                }
+                setTimeout(function(){
+                    $('#city option[value='+c_id+']').prop("selected",true);
+                },100);
+                upCity2(dId)
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+
+    function upCity2(id){
+        console.log(id);
+        $.ajax({
+            type: "GET",
+            url:website+'v1/area/county?pid='+id,
+            success: function(data){
+                for (var i = 0 ;i<data.data.length;i++){
+                    var str =' <option value="'+data.data[i].id+'">'+data.data[i].name+'</option>';
+                    $("#district").append(str);
+                }
+                setTimeout(function(){
+                    $('#district option[value='+d_id+']').prop("selected",true);
+                },100);
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+
+
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isAndroid){window.jsAntc.isOther();}
+</script>
+</html>

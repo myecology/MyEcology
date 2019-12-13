@@ -1,0 +1,171 @@
+<?php
+
+namespace common\models\shop;
+
+use api\controllers\APIFormat;
+use api\models\User;
+use common\models\Message;
+use common\models\Wallet;
+use common\models\WalletLog;
+
+
+/**
+ * This is the model class for table "iec_shop_wallet_log".
+ *
+ * @property int $id
+ * @property string $amount 操作金额
+ * @property string $symbol 操作币种
+ * @property int $user_id 用户id
+ * @property int $wallet_id 商户钱包id
+ * @property string $order_sn order_sn
+ * @property string $remake 备注
+ * @property int $type 操作类型
+ * @property int $status 操作类型
+ * @property string $balance 操作前余额
+ * @property string $created_at 创建时间
+ */
+class ShopWalletLog extends \yii\db\ActiveRecord
+{
+
+    public static $typeArr = [
+        10 => '收款',
+        20 => '提现',
+    ];
+
+    public static $statusArr = [
+        10 => 'pos机',
+        20 => '售货机',
+        30 => '内部提现'
+    ];
+
+    const TYPE_DEPOSIT = 10;
+    const TYPE_WITHDRAW = 20;
+
+    const STATUS_POS = 10;
+    const STATUS_SHOP = 20;
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'iec_shop_wallet_log';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['amount', 'balance'], 'number'],
+            [['symbol', 'user_id', 'wallet_id', 'order_sn', 'remake', 'type','status'], 'required'],
+            [['user_id', 'wallet_id', 'type','status'], 'integer'],
+            [['created_at'], 'safe'],
+            [['symbol'], 'string', 'max' => 30],
+            [['order_sn', 'remake'], 'string', 'max' => 255],
+            [['order_sn', 'user_id'], 'unique', 'targetAttribute' => ['order_sn', 'user_id']],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'amount' => 'Amount',
+            'symbol' => 'Symbol',
+            'user_id' => 'User ID',
+            'wallet_id' => 'Wallet ID',
+            'order_sn' => 'Order Sn',
+            'remake' => 'Remake',
+            'type' => 'Type',
+            'balance' => 'Balance',
+            'created_at' => 'Created At',
+        ];
+    }
+
+    public function getShopWallet(){
+        return ShopWallet::createdWallet($this->user_id,$this->symbol);
+    }
+
+    public function getWallet(){
+        $wallet = Wallet::findByUserId($this->user_id,$this->symbol);
+        if(empty($wallet)){
+            $wallet = Wallet::generateWallet($this->symbol,$this->user_id)->wallet;
+        }
+        return $wallet;
+    }
+
+    public static function findByOrderSn($order_sn){
+        return static::findOne([
+            'order_sn'=>$order_sn
+        ]);
+    }
+
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'user_id']);
+    }
+    /**
+     * @param $type
+     * @param $amount
+     * @param $symbol
+     * @param $user_id
+     * @param $shop_id
+     * @param $order_sn
+     * @param $status
+     */
+    public static function addLog($type,$amount,$symbol,$user_id,$shop_id,$order_sn = '提现',$status = 30){
+        $logData = [
+            'user_id' => $user_id,
+            'type' => $type,
+            'amount' => $amount,
+            'shop_id' => $shop_id,
+            'status' => $status,
+            'remake' => static::$typeArr[$type].$amount.$symbol,
+            'symbol' => $symbol,
+            'order_sn' => $order_sn,
+            'wallet_id' => 1
+        ];
+
+        $log = new static();
+        $log->setAttributes($logData);
+        if($log->save()){
+            return true;
+        }
+        throw new \ErrorException('添加日志错误'.APIFormat::popError($log->getErrors()),999);
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        if($insert){
+            $amount = $this->amount;
+            if($this->type == static::TYPE_DEPOSIT){
+                $wallet = $this->getShopWallet();
+                $balance = $wallet->operation($this->amount,ShopWallet::TYPE_DEPOSIT);
+                Message::addMessage(Message::TYPE_SHOP_EARN,$this->user,$this->symbol,$this->amount,$this);
+            }else{
+                $amount = -$this->amount;
+                $balance = $this->getShopWallet()->operation($this->amount,ShopWallet::TYPE_WITHDRAW);
+                $flag = $this->getWallet()->earnMoney($this->amount,WalletLog::TYPE_SHOP_USER);
+                if(empty($flag)){
+                    throw new \ErrorException('用户账户改变失败',999);
+                }
+                Message::addMessage(Message::TYPE_SHOP_USER,$this->user,$this->symbol,$this->amount,$this);
+            }
+            if(empty($balance) && $balance != 0){
+                throw new \ErrorException('操作钱包余额失败',999);
+            }
+            $this->wallet_id = $this->getShopWallet()->id;
+            $this->balance = $balance;
+            $this->amount = $amount;
+            if(!$this->save()){
+                throw new \ErrorException('日志修改失败',999);
+            }
+        }
+        parent::afterSave($insert, $changedAttributes); // TODO: Change the autogenerated stub
+    }
+}

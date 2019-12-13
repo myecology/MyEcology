@@ -1,0 +1,246 @@
+* {
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+body {
+    /*background-color:#022842;*/
+    background-position: 0 0;
+}
+body {
+    color: #262626;
+    padding: 0;
+    margin: 0;
+    font-size:12px;
+    font-family:'思源黑体',"微软雅黑","Microsoft YaHei";
+    /*font: 12px/20px "Microsoft YaHei","MicrosoftJhengHei","华文细黑",STHeiti,MingLiu,Arial,sans-serif,"微软雅黑";*/
+    overflow-x: hidden;
+}
+
+body, div, dl, dt, dd, p, ul, ol, li, h1, h2, h3, h4, h5, h6, hr, pre, code, form, fieldset, legend, input, button, blockquote, th, td, article, aside, details, section, img{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+img {
+    vertical-align: bottom;
+}
+
+html {
+    _text-overflow: ellipsis;
+}
+table {
+    empty-cells: show;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* 去掉 firefox 下此元素的边框 */
+abbr, acronym {
+    border: none;
+    font-variant: normal;
+}
+/* 去除默认边框 */
+img {
+    border: medium none;
+}
+/* 去掉列表前的标识, li 会继承 */
+ul, ol, li, dl, dd, dt, div, p {
+    list-style-type: none;
+}
+/* 要注意表单元素并不继承父级 font 的问题 */
+textarea {
+    resize: none;
+}
+/* IE bug fixed: th 不继承 text-align*/
+th {
+    text-align: inherit;
+}
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+    display: block;
+}
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+    text-align: left;
+}
+th, td {
+    text-align: left;
+    vertical-align: top;
+}
+/* 手指 */
+label, button {
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+del {
+    text-decoration: line-through;
+}
+ins {
+    text-decoration: none;
+}
+
+em, cite, i, address, caption, cite, code, dfn, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+input, button, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    *font-size: 100%;
+    background: none;
+}
+
+input {
+    vertical-align: middle;
+}
+a {
+    outline: none;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+a:active, a:focus {
+    text-decoration: none;
+}
+
+.cl:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.cl {
+    zoom: 1;
+}
+.cl {
+    display: inline-block;
+    display: block;
+}
+.f16{
+    color:#333;
+}
+.z {
+    float: left;
+}
+
+.y {
+    float: right;
+}
+
+#wp .wp {
+    width: auto;
+}
+/***********投标样式 Begin*************************/
+.addShou{
+    cursor: pointer;
+}
+.pa{
+    position: absolute;
+}
+.pr{
+    position: relative;
+}
+.paAuto{
+    position: absolute;
+    top:0;
+    right: 0;
+    left:0;
+    bottom:0;
+    margin:auto;
+}
+.ellipse{
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.t250{
+    -webkit-transition: all .25s linear;
+    -moz-transition: all .25s linear;
+    -ms-transition: all .25s linear;
+    -o-transition: all .25s linear;
+    transition: all .25s linear;
+}
+.t500{
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+}
+::-webkit-scrollbar{
+    width:0;
+    display:none;
+}
+.fs12{
+    font-size:12px;
+}
+.fs13{
+    font-size:13px;
+}
+.fs14{
+    font-size:14px;
+}
+.fs15{
+    font-size:15px;
+}
+.fs16{
+    font-size:16px;
+}
+.fs17{
+    font-size:17px;
+}
+.fs18{
+    font-size:18px;
+}
+.fs19{
+    font-size:19px;
+}
+.fs20{
+    font-size:20px;
+}
+.fw{
+    font-weight:bold;
+}
+.none{
+    display:none;
+}
+input[type='button']{
+    cursor: pointer;
+}
+.errorHint{
+    display: none;
+    background-color:rgba(0,0,0,.8);
+    color:#fff;
+    text-align:center;
+    position:fixed;
+    left:0;
+    right: 0;
+    margin:auto;
+    width:200px;
+    padding:4px;
+    border-radius:4px;
+    line-height:20px;
+    top:20%;
+}
+#a a:hover,#a .lg:hover{
+    color:#90bff2;
+}
+.lg{
+    background-color: #292a3c;
+    text-align: center;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 0 20px;
+}

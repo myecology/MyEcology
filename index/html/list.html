@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/com2019.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AALdYWIVTgNLh6xmGIwxyIiyq7A3ptuZ"></script>
+</head>
+<body>
+<div class="nav2 pr">
+    <a href="javascript:history.back(-1)">
+        <img src="../img/arrowLeft.png" class="paAuto" alt="">
+    </a>
+    <span></span>
+</div>
+
+<div class="main ">
+    <div class="likeList cl"></div>
+    <div class="nullRus none">暂无搜索结果</div>
+</div>
+</body>
+<script>
+    boxStyle();
+    function boxStyle(){
+        $(".listMes").css({
+            width:$(window).width()-30-135
+        });
+    }
+
+    //点击商铺类别
+    var pageNum = 1;
+    var nowTypeId = '';
+    var clickTypeId = '';
+    var clickObj = '';
+    var pageSize = 20;
+    var keywordText = sessionStorage.getItem("keyword");
+    var typeName = sessionStorage.getItem("typeName");
+    var l_lat = sessionStorage.getItem("lat");
+    var l_lng = sessionStorage.getItem("lng");
+    var isAll = sessionStorage.getItem("isAll");
+    var cityId = sessionStorage.getItem("cityId");
+    var loadOver = false;
+
+    var datas = {
+        keyword:keywordText,
+        type_id:'',
+        page:pageNum,
+        city_id:cityId,
+        page_size:pageSize,
+        lat:l_lat,
+        lng:l_lng
+    };
+
+
+    if (isAll){
+        datas.keyword = '';
+    }else{
+        $(".nav2 span").text(keywordText);
+    }
+
+    //    猜你喜欢
+    addShop();
+
+    function addShop(){
+        if(loadOver){
+            return;
+        }
+        if (isAll){
+            keywordText = '';
+        }
+        $.ajax({
+            type: "POST",
+            url:website+'v1/shop/shop-list',
+            // dataType: "json",
+            data:{
+                keyword:keywordText,
+                type_id:'',
+                page:pageNum,
+                city_id:cityId,
+                page_size:pageSize,
+                lat:l_lat,
+                lng:l_lng
+            },
+            success: function(data){
+                if (data.data.list.length){
+                    pageNum = pageNum +1;
+                    for (var i = 0;i<data.data.list.length;i++){
+                        var mes = data.data.list[i];
+                        var jlNum = mes.distance.split('m');
+                        if (jlNum[0]>100){
+                            jlNum[0] = jlNum[0]/1000+'KM'
+                        }else{
+                            jlNum[0] = jlNum[0]+'m'
+                        }
+                        var str = '<div class="list z pr">'
+                                +'<div class="z listImg" onclick="shops('+mes.id+')">'
+                                +'<img src="'+mes.store_photos+'" alt="">'
+                                +'</div>'
+                                +'<div class="y listMes" onclick="shops('+mes.id+')">'
+                                +'<div class="z name ellipse">'+mes.name+'</div>'
+                                +'<div class="z intro">'+mes.introduction+'</div>'
+                                +'<div class="z jl">'+jlNum[0]+'</div>'
+                                +'</div>'
+                                +'<div class="y goTo" lat="'+mes.lat+'" lng="'+mes.lng+'" name="'+mes.name+'" onclick="goTo(this)">立即前往</div>'
+                                +'</div>';
+                        $(".likeList").append(str);
+                        boxStyle();
+                    }
+                }else{
+                    loadOver = true;
+                    if(pageNum<=1){
+                        $(".nullRus").show();
+                    }
+                }
+            },
+            error:function(res){
+                errorHintFadeIn(res,1000);
+            }
+        });
+    }
+
+
+
+
+
+    function searchShop(obj) {
+        clickObj = obj;
+        $(".all").hide();
+        clickTypeId = $(obj).attr('data-id');
+        if (nowTypeId == ''){
+            $(".likeList .list").remove();
+            nowTypeId = clickTypeId;
+            pageNum++;
+        }else if(nowTypeId == clickTypeId) {
+            nowTypeId = clickTypeId;
+            pageNum++;
+        }else {
+            $(".likeList .list").remove();
+            pageNum = 1;
+        }
+        var datas = {
+            keyword:'',
+            type_id:clickTypeId,
+            page:pageNum,
+            page_size:pageSize
+        };
+        searchShopShow(datas);
+    }
+
+
+    //    滑动到底部
+    $(window).bind('scroll',function(){
+        if($(window).scrollTop()+$(window).height()==$(document).height()){
+            addShop();
+        }else{
+            console.log('没有')
+        }
+    });
+
+    function goTo(obj){
+        window.location = 'http://api.map.baidu.com/marker?location='+$(obj).attr("lat")+','+$(obj).attr("lng")+'&title=位置&content='+$(obj).attr("name")+'&output=html&src=webapp.baidu.openAPIdem'
+//        alert('点击前往');
+//        window.location = 'http://api.map.baidu.com/marker?location='+l_lat+','+l_lng+'&title=我的位置&content=吃饭的地方&output=html&src=webapp.baidu.openAPIdemo';
+        //        window.location='http://api.map.baidu.com/geocoder?address=北京市海淀区上地信息路9号奎科科技大厦&output=html&src=webapp.baidu.openAPIdemo';
+//        window.location='http://api.map.baidu.com/geocoder?address=四川省成都市金牛区九里堤南路125号&output=html&src=webapp.baidu.openAPIdemo';
+    }
+
+    function shops(obj){
+        window.location = "shops.html?id="+obj+'&token='+tokenT
+    }
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isAndroid){window.jsAntc.isOther();}
+</script>
+</html>

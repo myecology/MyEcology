@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+<div class="main ">
+    <div class="rt" onclick="returnBeforePage()">
+        <img src="img/arrow.png" alt="">
+    </div>
+    <div class="title">账号登录</div>
+    <div class="phoneBox cl">
+        <input type="text" class="z" maxlength="11" placeholder="请输入手机或邮箱">
+    </div>
+    <div class="nextBut" onclick="loginBut()">
+        登录
+    </div>
+    <div class="goLogin">
+        没有账号？<a href="register.html">去注册</a>
+    </div>
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+//    登录
+    function loginBut(){
+
+    }
+
+    function returnBeforePage(){
+        window.location.href = document.referrer;
+    }
+</script>
+</html>

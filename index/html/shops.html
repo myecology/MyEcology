@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=yes"/>
+    <title>商铺详情</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/de.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AALdYWIVTgNLh6xmGIwxyIiyq7A3ptuZ"></script>
+
+</head>
+<body>
+
+    <div class="nav pr">
+        <a href="javascript:history.back(-1)">
+            <img src="../img/arrowLeft.png" class="paAuto" alt="">
+        </a>
+        商家详情
+    </div>
+    <div class="main">
+        <div class="pptImg pr">
+            <div class="state_1 none s1">
+                审核中...
+            </div>
+            <div class="state_2 none s2">
+                审核通过
+            </div>
+            <div class="state_3 s3 none">
+                审核未通过<img src="../img/wen.png" >
+                <div class="hint">12312312</div>
+            </div>
+            <div class="state_4 s2 s3 none">
+                修改信息
+            </div>
+        </div>
+
+        <div class="shopsMes pr">
+            <div class="shopsName pr">
+                <div class="mes ellipse name">
+
+                </div>
+                <!--<div phone="" class="phone pa" onclick="telPhone(this)" >-->
+                    <!--<img src="../img/phone.png" class="z" alt="">-->
+                    <!--<div class="z">联系商家</div>-->
+                <!--</div>-->
+                <a href="javascript:void(0)" class="phone pa" >
+                    <img src="../img/phone.png" class="z" alt="">
+                    <div class="z">联系商家</div>
+                </a>
+            </div>
+
+            <div class="shopsIntro shopIntroduction"></div>
+        </div>
+        <div class="shopsMes pr">
+            <div class="shopsName pr">
+                <div class="mes mes2 ellipse">
+                </div>
+                <div class="juli pa none">
+                   <500m 离我最近
+                </div>
+            </div>
+            <!--<div class="zi" style="width:100%;"></div>-->
+            <div class="shopsIntro pr">
+                <div class="address">地址:<span></span></div>
+                <div class="goTo pa" onclick="goTo(this)">立即前往</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/com2019.js"></script>
+<script>
+    $(".pptImg").css({
+        height:($(window).width()-30)/580*356
+    });
+    var l_lat = sessionStorage.getItem("lat");
+    var l_lng = sessionStorage.getItem("lng");
+    var cId = sessionStorage.getItem("cityId");
+    $('.zi').text(l_lat+'-'+l_lng+'-'+cId);
+    var pageX = 0,
+            pageY = 0,
+            moveX = 0,
+            moveY = 0,
+            diffX = 0,
+            diffY = 0;
+    var showImg = 0;
+    var beforeImg = 0;
+    initMove();
+
+    var imgLength;
+    function initMove(){
+        $(".pptImg")[0].addEventListener('touchstart',function(e){
+            var touch = e.touches[0];
+            pageX = touch.pageX;
+            pageY = touch.pageY;
+        },false);
+
+        $(".pptImg")[0].addEventListener('touchmove',function(e){
+            e.preventDefault();
+            var touch = e.touches[0];
+            moveX = touch.pageX;
+            moveY = touch.pageY;
+        },false);
+
+        $(".pptImg")[0].addEventListener('touchend',function(e){
+            if (moveX!= 0) {
+                diffX = moveX - pageX;
+                diffY = moveY - pageY;
+                $('.topImg').addClass('t500');
+                if (diffX>50){
+                    beforeImg = showImg;
+                    showImg--;
+                    if(showImg<0){
+                        showImg = imgLength;
+                    }
+                    $('.topImg').eq(beforeImg).removeClass('showI');
+                    $('.topImg').eq(showImg).addClass('showI');
+                }else if(diffX<-50){
+                    beforeImg = showImg;
+                    showImg++;
+                    if(showImg>imgLength){
+                        showImg = 0;
+                    }
+                    $('.topImg').eq(beforeImg).removeClass('showI');
+                    $('.topImg').eq(showImg).addClass('showI');
+                }
+                moveX = 0;
+                moveY = 0;
+            }
+        },false);
+    }
+
+//    读取店铺id
+    var shopId = getQueryString('id');
+    var bf = getQueryString('bf');
+    if(bf == 'index'){
+        $(".nav a").attr('href','index.html?'+tokenT);
+    }
+    $.ajax({
+        type: "POST",
+        url:website+'v1/shop/shop-detail',
+        // dataType: "json",
+        data:{
+            id:shopId
+        },
+        success: function(data){
+            console.log(data);
+//          店铺图片
+            var imgUrl = data.data.store_photos.split(",");
+            for (var i = 0;i< imgUrl.length;i++){
+                var imgStr = ' <img src="'+imgUrl[i]+'" class="topImg" alt="">';
+                $(".pptImg").append(imgStr);
+                $(".pptImg").append(imgStr);
+                $(".pptImg").append(imgStr);
+                $(".pptImg").append(imgStr);
+            }
+
+            $('.topImg').eq(showImg).addClass('showI');
+            imgLength = $('.pptImg .topImg').length-1;
+            // imgLength = 3;
+            $(".address span").text(' '+data.data.address);
+            $(".name,.mes2").text(data.data.name);
+
+
+            var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+            if (isAndroid){
+                $(".phone").click(function(){
+//                    alert('1');
+                    var ph = data.data.phone;
+                    console.log(ph);
+                    window.jsAntc.showTele(ph);
+//                    alert('2')
+                });
+            }else if (isiOS){
+                $(".phone").attr('href','tel:'+data.data.phone);
+            }
+
+
+            $(".goTo").attr("lng",data.data.lng);
+            $(".goTo").attr("lat",data.data.lat);
+            $(".goTo").attr("name",data.data.name);
+            $(".shopIntroduction").text(data.data.introduction)
+        },
+        error:function(res){
+            errorHintFadeIn(res.msg,1000);
+        }
+    });
+
+    function goTo(obj){
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isiOS){
+            window.location = 'http://api.map.baidu.com/marker?location='+$(obj).attr("lat")+','+$(obj).attr("lng")+'&title=位置&content='+$(obj).attr("name")+'&output=html&src=webapp.baidu.openAPIdem'
+        }else{
+            var lngMap = parseFloat($(obj).attr("lng"));
+            var latMap = parseFloat($(obj).attr("lat"));
+            window.jsAntc.startNavi(latMap,lngMap);
+//            webView.loadUrl("https://map.baidu.com/mobile/webapp/index/index/");
+//            window.location = 'http://api.map.baidu.com/marker?location='+$(obj).attr("lat")+','+$(obj).attr("lng")+'&title=位置&content='+$(obj).attr("name")+'&output=html&src=webapp.baidu.openAPIdem'
+        }
+    }
+
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isAndroid){window.jsAntc.isOther();}
+</script>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交易记录</title>
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/his.css">
+</head>
+<body>
+    <div class="main">
+        <div class="titile cl pr">
+            <div class="z titileClick lang_0" onclick="showAll(0)"></div>
+            <div class="z lang_1" onclick="showAll(1)"></div>
+            <div class="z lang_2" onclick="showAll(2)"></div>
+        </div>
+        <div class="allMes">
+
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-2.2.2.min.js"></script>
+<script src="../js/com.js"></script>
+<script>
+
+    var lang = GetQueryString("Lang");
+    var objId = GetQueryString("user_id");
+
+
+    var langNum = 0;
+    switch (lang) {
+        case 'zh':
+            langNum = 0;
+            break;
+        case 'en':
+            langNum = 1;
+            break;
+        case 'zh_ft':
+            langNum = 2;
+            break;
+    }
+
+
+    var langText = [
+        [
+            '全部',
+            '锁仓',
+            '解锁',
+            '令牌锁仓',
+            '锁仓数量',
+            '锁仓时间',
+            '解锁数量',
+            '解锁时间',
+            '解锁令牌'
+        ],
+        [
+            'All',
+            'Lock up',
+            'Unlock',
+            'Token to lock up',
+            'Lock quantity',
+            'Lock up time',
+            'Unlock quantity',
+            'Unlock time',
+            'Unlock token'
+        ],
+        [
+            '全部',
+            '鎖倉',
+            '解鎖',
+            '令牌鎖倉',
+            '鎖倉數量',
+            '锁仓时间',
+            '解鎖數量',
+            '解鎖時間',
+            '解鎖令牌',
+        ]
+    ];
+
+    for(var i = 0;i<3;i++){
+        $(".lang_"+i).text(langText[langNum][i])
+    }
+
+
+    $.ajax({
+        type: "get",
+        url:mainUrl + '/licai/user/log?Lang='+lang+'&user_id='+objId,
+        headers: {
+            "authorization": 'Bearer '+tokenD
+        },
+        success: function(data){
+            if(data.data.data.length){
+                for(var i = 0;i<data.data.data.length;i++){
+                    var obj = data.data.data[i];
+                    var str = '';
+                    if (obj.type == 10){
+                        str = ' <div class="box status_1">\n' +
+                            '                <div class="boxTitle cl">\n' +
+                            '                    <div class="z nameT stateColor">'+langText[langNum][3]+'</div>\n' +
+                            '                    <div class="y name">'+obj.name+'</div>\n' +
+                            '                </div>\n' +
+                            '                <div class="boxMes cl">\n' +
+                            '                    <div class="z">\n' +
+                            '                        <div>'+langText[langNum][4]+'('+obj.symbol+')</div>\n' +
+                            '                        <div class="ye">'+obj.amount+'</div>\n' +
+                            '                    </div>\n' +
+                            '                    <div class="y time">\n' +
+                            '                        <div>'+langText[langNum][5]+'</div>\n' +
+                            '                        <div class="ye">'+obj.day+'</div>\n' +
+                            '                    </div>\n' +
+                            '                </div>\n' +
+                            '            </div>';
+                    }else{
+                        str = ' <div class="box status_2">\n' +
+                            '                <div class="boxTitle cl">\n' +
+                            '                    <div class="z nameT stateColor">'+langText[langNum][8]+'</div>\n' +
+                            '                    <div class="y name">'+obj.name+'</div>\n' +
+                            '                </div>\n' +
+                            '                <div class="boxMes cl">\n' +
+                            '                    <div class="z">\n' +
+                            '                        <div >'+langText[langNum][6]+'('+obj.symbol+')</div>\n' +
+                            '                        <div  class="ye">'+obj.amount+'</div>\n' +
+                            '                    </div>\n' +
+                            '                    <div class="y time">\n' +
+                            '                        <div class="">'+langText[langNum][7]+'</div>\n' +
+                            '                        <div class="ye">'+obj.day+'</div>\n' +
+                            '                    </div>\n' +
+                            '                </div>\n' +
+                            '            </div>';
+
+                    }
+                    $(".allMes").append(str);
+                }
+            }
+
+        },
+        error:function(res){
+        }
+    });
+
+    function showAll(state){
+        $(".titile .z").removeClass('titileClick');
+        $(".titile .z").eq(state).addClass('titileClick');
+        $(".titile img").hide();
+        $(".titile img").eq(state).show();
+        switch (state){
+            case 0:
+                $(".box").show();
+                break;
+            case 1:
+                $(".status_1").show();
+                $(".status_2").hide();
+                break;
+            case 2:
+                $(".status_1").hide();
+                $(".status_2").show();
+                break;
+        }
+    }
+</script>
+</html>

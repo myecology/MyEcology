@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>令牌理财</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/licai.css">
+    <style>
+        .tt {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="mainTop pr">
+            <div class="moneyCount pr">
+                <div class="money cl">
+                    <p class="dw">
+                        <span> </span>
+                        <span>(MFCC)</span>
+                    </p>
+                    <P> </P>
+                </div>
+            </div>
+            <a href="javascript:void(0)" class="myC pa lang_0">
+
+            </a>
+        </div>
+        <div class="top cl">
+            <div class="z zr">
+                <p class="lang_1"></p>
+                <p class="stateColor"></p>
+            </div>
+            <div class="z lj">
+                <p class="lang_2"></p>
+                <p class="stateColor"></p>
+            </div>
+        </div>
+        <div class="boxAll">
+
+        </div>
+    </div>
+    <div class="txMask none">
+        <div class="box2 paAuto cl">
+            <div class="boxT cl">可提现到区块钱包</div>
+            <div class="boxMoney cl">1000IEC</div>
+            <div class="boxHint cl">不可提现 500IEC</div>
+            <div class="cancal z" onclick="cancelFun()">
+                取消
+            </div>
+            <div class="sure y" onclick="sureFun()">
+                立即提现
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="../js/jquery-2.2.2.min.js"></script>
+<script src="../js/com.js"></script>
+<script>
+    var langText = [
+        [
+            '我的锁仓',
+            '昨日增益',
+            '累计收益',
+            '到期收益率',
+            '100个预计收益',
+            '暂无理财产品'
+        ],
+        [
+            'My lockers',
+            'Yesterday gain',
+            'Accumulated income',
+            'Yield to maturity',
+            'One hundred expected return',
+            'No wealth management products'
+        ],
+        [
+            '我的鎖倉',
+            '昨日增益',
+            '累計收益',
+            '到期收益率',
+            '100個預計收益',
+            '暫無理財產品'
+        ]
+    ];
+
+
+    function txFun() {
+        $(".txMask").show();
+    }
+    function cancelFun() {
+        $(".txMask").hide();
+    }
+    function sureFun() {
+        $(".txMask").hide();
+    }
+
+    var dataLang = GetQueryString("Lang");
+    var urlLang = GetQueryString("Lang");
+    switch (dataLang) {
+        case 'zh':
+            dataLang = 0;
+            break;
+        case 'en':
+            dataLang = 1;
+            break;
+        case 'zh_ft':
+            dataLang = 2;
+            break;
+    }
+    $.ajax({
+        type: "get",
+        url: mainUrl + '/licai/index/index?Lang=' + urlLang,
+        headers: {
+            "authorization": 'Bearer ' + tokenD
+        },
+        success: function (data) {
+            $(".dw span").eq(0).text(data.data.total.amount);
+            $(".money p").eq(1).text('≈￥ ' + data.data.total.rmb);
+            $('.myC').attr('href', 'my.html?Lang=' + urlLang + '&user_id=' + data.data.user_id)
+            $(".zr p").eq(1).text(data.data.profit.lastday);
+            $(".lj p").eq(1).text(data.data.profit.total);
+            langFun(dataLang);
+            if (data.data.list.length == 0) {
+                var str = `
+                    <div class="prompt">
+                        <img src="./img/prompt.png" alt="">
+                        <p>${langText[dataLang][5]}</p>
+                    </div>
+                `
+                $(".boxAll").append(str);
+            } else {
+                for (var i = 0; i < data.data.list.length; i++) {
+                    var str = '<div  class="box pr"  id="' + parseInt(data.data.list[i].id) + '">\n' +
+                        '        <div class="title pr">\n' +
+                        data.data.list[i].name +
+                        '            <a href="javascript:void(0)" class="more">\n' +
+                        '                <img src="../img/more.png" alt="">\n' +
+                        '            </a>\n' +
+                        '        </div>\n' +
+                        '        <div class="votebox">' +
+                        '           <div class="voteImg" style="left:0%">' +
+                        `               <p>${data.data.list[i].sales_ratio * 100}%</p>` +
+                        '           </div>' +
+                        '           <dl class="barbox">' +
+                        '              <dd class="barline">' +
+                        `                   <div w="${data.data.list[i].sales_ratio * 100}" style="width:0px;" class="charts"></div>` +
+                        '               </dd>' +
+                        '           </dl>' +
+                        '       </div>' +
+                        '        <div class="mesBox cl">\n' +
+                        '            <div class="mes z">\n' +
+                        '                <div>' + langText[dataLang][3] + '</div>\n' +
+                        '                <div class="stateColor2">' + data.data.list[i].rate + '%</div>\n' +
+                        '            </div>\n' +
+                        '            <div class="mes z">\n' +
+                        '                <div>' + langText[dataLang][4] + '(' + data.data.list[i].profit_symbol + ')</div>\n' +
+                        '                <div class="stateColor2">' + data.data.list[i].expected_earnings + '</div>\n' +
+                        '            </div>\n' +
+                        '        </div>\n' +
+                        '<a class="tt" href="info.html?id=' + parseInt(data.data.list[i].id) + '&Lang=' + urlLang + '&user_id=' + data.data.user_id + '&profit_symbol=' + data.data.list[i].profit_symbol + '"></a>' +
+                        '    </div>';
+                    $(".boxAll").append(str);
+                }
+            }
+            animate()
+
+        },
+        error: function (res) {
+        }
+    });
+
+
+    function animate() {
+        var a;
+        $(".charts").each(function (i, item) {
+            a = parseInt($(item).attr("w"));
+            $(item).animate({
+                width: a + "%"
+            }, 1000);
+        });
+        $('.voteImg').animate({
+            left: a + "%"
+        }, 1000);
+    }
+
+    function langFun(index) {
+        console.log(index)
+        for (var i = 0; i < 3; i++) {
+            console.log(langText[index][i]);
+            $(".lang_" + i).text(langText[index][i])
+        }
+
+    }
+
+</script>
+
+</html>

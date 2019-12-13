@@ -1,0 +1,149 @@
+.title{
+    font-size:36px;
+    color:#333;
+    text-align: center;
+    line-height:50px;
+}
+.title span{
+    color:#2f8ffb;
+}
+.main{
+    background-color:#fff;
+    padding:130px 0;
+}
+.jsBox{
+    width:320px;
+    text-align: left;
+    color:#999;
+    line-height:30px;
+    margin-left:60px;
+    margin-top:60px;
+}
+.jsBox img{
+    height:50px;
+    display: block;
+    margin:auto;
+}
+.jsTitle{
+    line-height:30px;
+    font-size: 24px;
+    color:#333;
+    text-align: center;
+    margin-top:30px;
+    margin-bottom:40px;
+}
+.jsContent{
+    font-size:16px;
+}
+.js .jsBox:nth-child(4){
+    margin-left:212px;
+}
+.js .jsBox:nth-child(5){
+    margin-left:130px;
+}
+.icBox{
+    width:300px;
+    height:660px;
+}
+.icBox img{
+    display: block;
+    margin:auto;
+}
+.icBox p{
+    font-size:34px;
+    text-align: center;
+    color:#fff;
+    margin-bottom:70px;
+}
+.main3{
+    padding-top:120px;
+}
+.main4{
+    background-color:#f7faff;
+}
+.m1d1{
+    color:#333;
+    font-size:36px;
+    margin-bottom:50px;
+}
+.main3 .main3Big{
+    width:560px;
+}
+.m3Bi{
+    color:#999;
+    margin-bottom:40px;
+}
+.m3Bi p{
+    color:#333;
+    font-size:24px;
+    margin-bottom:15px;
+}
+.m3Bi div{
+    font-size:18px;
+    line-height:30px;
+}
+.m3Bi:after{
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: #2f8ffb;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: -30px;
+    top: 8px;
+}
+.main4{
+    padding:150px 0;
+}
+.main4 .main3Big{
+    width:500px;
+    margin-top: 55px;
+}
+.m2d1{
+    color:#333;
+    font-size:36px;
+    margin-bottom:20px;
+}
+.m2d2{
+    font-size:20px;
+    color:#999;
+    line-height:30px;
+}
+.main4 .main3Big{
+    width:400px;
+    /*margin-top: 55px;*/
+}
+.main5{
+    padding:160px 0;
+    padding-bottom:80px;
+}
+.m3d1{
+    color:#333;
+    font-size:36px;
+    margin-bottom:30px;
+}
+.m3d2{
+    font-size:20px;
+    color:#999;
+    line-height:30px;
+    margin-bottom:60px;
+}
+.main4,.main5,.main3{
+    letter-spacing:2px;
+}
+.jsBox{
+    display:none;
+}
+.js{
+    height:630px;
+}
+.icBox img{
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    opacity:0;
+    left:500px;
+}

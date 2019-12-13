@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>商铺详情</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/de.css">
+</head>
+<body>
+    <div class="nav pr">
+        <a href="javascript:history.back(-1)">
+            <img src="../img/arrowLeft.png" class="paAuto" alt="">
+        </a>
+        商家详情
+    </div>
+    <div class="main">
+        <div class="pptImg pr">
+            <div class="state_1 none s1">
+                审核中...
+            </div>
+            <div class="state_2 none s2">
+                审核通过
+            </div>
+            <div class="state_3 s3 none">
+                审核未通过<img src="../img/wen.png" >
+                <div class="hint">12312312</div>
+            </div>
+            <a href="javascript:void(0)" onclick="changeMes()" class="state_4 s2 s3 none">
+                修改信息
+            </a>
+        </div>
+
+        <div class="shopsMes pr">
+            <div class="shopsName pr">
+                <div class="mes ellipse name">
+
+                </div>
+                <a href="tel:112222" class="phone pa">
+                    <img src="../img/phone.png" class="z" alt="">
+                    <div class="z">联系商家</div>
+                </a>
+            </div>
+
+            <div class="shopsIntro shopIntroduction"></div>
+        </div>
+
+        <div class="shopsMes pr">
+            <div class="shopsName pr">
+                <div class="mes mes2 ellipse">
+
+                </div>
+                <div class="juli pa none">
+                   <500m 离我最近
+                </div>
+            </div>
+            <div class="shopsIntro pr">
+                <div class="address">地址:<span></span></div>
+                <div class="goTo pa">立即前往</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/com.js"></script>
+<script>
+    $(".pptImg").css({
+        height:($(window).width()-30)/580*356
+    });
+    var pageX = 0,
+            pageY = 0,
+            moveX = 0,
+            moveY = 0,
+            diffX = 0,
+            diffY = 0;
+    var showImg = 0;
+    var beforeImg = 0;
+    initMove();
+
+
+    var isApply = getQueryString('isApply');
+    if(isApply){
+        $(".nav a").attr('href','index.html?token='+tokenT);
+    }
+
+    var imgLength;
+    function initMove(){
+        $(".pptImg")[0].addEventListener('touchstart',function(e){
+            var touch = e.touches[0];
+            pageX = touch.pageX;
+            pageY = touch.pageY;
+        },false);
+
+        $(".pptImg")[0].addEventListener('touchmove',function(e){
+            e.preventDefault();
+            var touch = e.touches[0];
+            moveX = touch.pageX;
+            moveY = touch.pageY;
+        },false);
+
+        $(".pptImg")[0].addEventListener('touchend',function(e){
+            if (moveX!= 0) {
+                diffX = moveX - pageX;
+                diffY = moveY - pageY;
+                $('.topImg').addClass('t500');
+                if (diffX>50){
+                    beforeImg = showImg;
+                    showImg--;
+                    if(showImg<0){
+                        showImg = imgLength;
+                    }
+                    $('.topImg').eq(beforeImg).removeClass('showI');
+                    $('.topImg').eq(showImg).addClass('showI');
+                }else if(diffX<-50){
+                    beforeImg = showImg;
+                    showImg++;
+                    if(showImg>imgLength){
+                        showImg = 0;
+                    }
+                    $('.topImg').eq(beforeImg).removeClass('showI');
+                    $('.topImg').eq(showImg).addClass('showI');
+                }
+                moveX = 0;
+                moveY = 0;
+            }
+        },false);
+    }
+
+    var a = '';
+
+    $.ajax({
+        type: "POST",
+        url:website+'v1/shop/update-view',
+        success: function(data){
+            console.log(data);
+//          店铺图片
+            var imgUrl = data.data.store_photos.split(",");
+            for (var i = 0;i< imgUrl.length;i++){
+                var imgStr = ' <img src="'+imgUrl[i]+'" class="topImg" alt="">';
+                $(".pptImg").append(imgStr);
+            }
+
+            $('.topImg').eq(showImg).addClass('showI');
+            imgLength = $('.pptImg .topImg').length-1;
+
+            $(".address span").text(' '+data.data.address);
+            $(".name,.mes2").text(data.data.name);
+            $(".phone").attr('href','tel:'+data.data.phone);
+            $(".shopIntroduction").text(data.data.introduction);
+//            0审核中 10 审核通过 20 审核拒绝
+            switch (data.data.status){
+                case 0:
+                    $(".s1").show();
+                    break;
+                case 10:
+                    $(".s2").show();
+                    break;
+                case 20:
+                    $(".s3").show();
+                    $(".hint").text(data.data.refuse_reason);
+                    break;
+            }
+        },
+        error:function(res){
+            errorHintFadeIn(res.msg,1000);
+        }
+    });
+
+    function changeMes(){
+        window.location.href = 'update.html?token='+tokenT;
+    }
+
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isAndroid){window.jsAntc.isOther();}
+</script>
+</html>

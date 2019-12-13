@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收益明细</title>
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/mingxi.css">
+</head>
+<body>
+    <div class="main">
+        <div class="mainTop pr">
+            <div class="moneyCount paAuto">
+                <div class="lang_0"></div>
+                <p>￥<span></span></p>
+            </div>
+        </div>
+        <div class="boxAll">
+
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-2.2.2.min.js"></script>
+<script src="../js/com.js"></script>
+<script>
+    var lang = GetQueryString("Lang");
+    var objId = GetQueryString("user_id");
+
+    var langNum = 0;
+    switch (lang) {
+        case 'zh':
+            langNum = 0;
+            break;
+        case 'en':
+            langNum = 1;
+            break;
+        case 'zh_ft':
+            langNum = 2;
+            break;
+    }
+
+
+    var langText = [
+        [
+            '累计收益',
+            '已结束',
+            '锁仓收益',
+            '收益',
+            '收益到账时间',//4
+            '阶段释放',
+            '锁仓收益'
+        ],
+        [
+            'Accumulated income',
+            "It's over",
+            'Lock-in revenue',
+            'Revenue',
+            'The time of receipt arrival\'',//4
+            'Phase release',
+            'Lock-in revenue'
+        ],
+        [
+            '累計收益',
+            '已結束',
+            '鎖倉收益',
+            '收益',
+            '收益到賬時間',//4
+            '階段釋放',
+            '鎖倉收益'
+        ]
+    ];
+
+    for(var i = 0;i<1;i++){
+        $(".lang_"+i).text(langText[langNum][i])
+    }
+
+    var aa = '';
+    $.ajax({
+        type: "get",
+        url:mainUrl + '/licai/user/profit?Lang='+lang+'&user_id='+objId,
+        headers: {
+            "authorization": 'Bearer '+tokenD
+        },
+        success: function(res){
+            aa = res;
+            $(".moneyCount span").text(res.data.profitTotal)
+           if(res.data.data.length){
+               for(var i=0;i<res.data.data.length;i++){
+                   var obj = res.data.data[i];
+                   var str = '';
+                   if (obj.type == 1){
+                       str =    '  <div class="box">\n' +
+                           '                       <div class="title cl">\n' +
+                           '                       <div class="titleText z">'+obj.name+'</div>\n' +
+                           '                       <div class="titleState y titleStateOver">'+langText[langNum][1]+'</div>\n' +
+                           '                       </div>\n' +
+                           '                       <div class="boxMes cl">\n' +
+                           '                       <div class="mes z">\n' +
+                           '                       <div>'+langText[langNum][2]+'（'+obj.symbol+'）</div>\n' +
+                           '                   <div class="stateColor">'+obj.locking_profit+'</div>\n' +
+                           '                       </div>\n' +
+                           '                       <div class="mes z">\n' +
+                           '                       <div>'+langText[langNum][3]+'（'+obj.symbol+'）</div>\n' +
+                           '                   <div  class="stateColor">'+obj.profit+'</div>\n' +
+                           '                       </div>\n' +
+                           '                       </div>\n' +
+                           '                       <div class="hint">\n' +
+                           langText[langNum][4]+'：'+obj.day+'\n' +
+                           '                   </div>\n' +
+                           '                   </div>';
+                   }else{
+                       str = '<div class="box">\n' +
+                           '                       <div class="title cl pr">\n' +
+                           '                       <div class="titleText z">'+obj.name+'</div>\n' +
+                           '                       <div class="titleState y titleStateIng pr">'+langText[langNum][5]+'</div>\n' +
+                           '                       </div>\n' +
+                           '                       <div class="boxMes cl">\n' +
+                           '                       <div class="mes z">\n' +
+                           '                       <div>'+langText[langNum][6]+'（'+obj.symbol+'）</div>\n' +
+                           '                   <div class="stateColor">'+obj.locking_profit+'</div>\n' +
+                           '                       </div>\n' +
+                           '                       <div class="mes z">\n' +
+                           '                       <div>'+langText[langNum][3]+'（'+obj.symbol+'）</div>\n' +
+                           '                   <div  class="stateColor">'+obj.profit+'</div>\n' +
+                           '\n' +
+                           '                       </div>\n' +
+                           '                       </div>\n' +
+                           '                       <div class="hint">\n' +
+                                langText[langNum][4]+'：'+obj.day+'\n' +
+                           '                   </div>\n' +
+                           '                   </div>';
+                   }
+                   $(".boxAll").append(str);
+               }
+           }
+        },
+        error:function(res){
+        }
+    });
+</script>
+</html>

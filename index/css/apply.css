@@ -1,0 +1,135 @@
+.nav{
+    height:40px;
+    padding:10px;
+    background-color:#fff;
+    text-align: center;
+    font-size:16px;
+    line-height:20px;
+}
+body{
+    background-color:#f8f8fa;
+}
+.nav a{
+    display: block;
+    position:absolute;
+    width:30px;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+.nav a img{
+    width:30%;
+}
+.tj{
+    color:#0077ee;
+    font-size:14px;
+    height:40px;
+    padding:0 10px;
+    top:0;
+    right:0;
+    line-height:40px;
+}
+.main{
+    width:100%;
+    padding:0 10px;
+
+    margin-top:15px;
+}
+select{
+    width:100%;
+    border:0px;
+    outline:none;
+    height:30px;
+    line-height:30px;
+}
+.mesBox{
+    line-height:30px;
+    margin-bottom:5px;
+    padding:0 20px;
+}
+.mesBox input{
+    height:30px;
+    line-height:30px;
+}
+.mes{
+    background-color:#fff;
+    width:100%;
+    border-radius:4px;
+}
+.mesBox>.z {
+    color: #000;
+    font-size: 14px;
+    /*font-weight: bold;*/
+}
+.mesBox>.y{
+    width:60%;
+}
+textarea{
+    margin-top:10px;
+    width:100%;
+    border:1px solid #ccc;
+    padding:10px;
+    height:120px;
+    outline:none;
+    border-radius:8px;
+}
+.addPhoto{
+    width:115px;
+    height:72px;
+    /*overflow: hidden;*/
+    margin-bottom:15px;
+    background-color: #dadada;
+}
+.loadingUp{
+    width:115px;
+    text-align: center;
+    line-height:20px;
+    margin-bottom: 15px;
+}
+.addPhoto img{
+    width:100%;
+}
+.p2,.p4{
+   margin-left:15px;
+}
+
+
+.del{
+    top: -10px;
+    right: -10px;
+    color: #ff4343;
+    text-align: center;
+    border: 1px solid #ff4343;
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display:none;
+}
+.addPhotoBox{
+    position:absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    width:100%;
+    height:100%;
+    background-color: #dadada;
+}
+.main .cardImg_1{
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    z-index:100;
+    width:100%;
+    height:100%;
+}

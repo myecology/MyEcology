@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        html,body,div{
+            width:100%;
+            height:100%;
+        }
+        img{
+            width:50%;
+        }
+        .zf{
+            position: absolute;
+            top: 5%;
+            left: 0;
+            right: 0;
+            color:#fff;
+            border:1px solid #fff;
+            height: 30px;
+            text-align: center;
+            width: 60px;
+            border-radius:4px;
+            margin: auto;
+            line-height: 28px;
+        }
+        .df{
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+            right: 0;
+            color:#fff;
+            border:1px solid #fff;
+            height: 30px;
+            text-align: center;
+            width: 60px;
+            border-radius:4px;
+            margin: auto;
+            line-height: 28px;
+        }
+        .addTime{
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            color:#fff;
+            border:1px solid #fff;
+            height: 30px;
+            text-align: center;
+            width: 60px;
+            border-radius:4px;
+            margin: auto;
+            line-height: 28px;
+        }
+        .jianTime{
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            color:#fff;
+            border:1px solid #fff;
+            height: 30px;
+            text-align: center;
+            width: 60px;
+            border-radius:4px;
+            margin: auto;
+            line-height: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img class="paAuto" src="img/lei%20(1).png" alt="">
+        <div class="zf">正放</div>
+        <div class="df">倒放</div>
+        <div class="addTime">加速</div>
+        <div class="jianTime">减速</div>
+    </div>
+
+</body>
+<script src="./js/jquery-2.2.2.min.js"></script>
+<script>
+    var a = 0;
+    var timeNum = 50;
+
+    var zfIn,dfIn;
+
+    var isZf = '';
+
+    $(".zf").click(function(){
+        zfFun();
+    });
+
+    $(".df").click(function(){
+        dfFun();
+    });
+
+    $(".addTime").click(function(){
+        clearInterval(dfIn);
+        clearInterval(zfIn);
+        timeNum = timeNum+10;
+        console.log(timeNum);
+        switch (isZf) {
+            case "":
+                zfFun();
+                break;
+            case 1:
+            case '1':
+                zfFun();
+                break;
+            case 0:
+            case '0':
+                dfFun();
+                break;
+        }
+    });
+
+    $(".jianTime").click(function(){
+        timeNum = timeNum-10 <10?10:timeNum-10;
+        console.log(timeNum);
+        clearInterval(dfIn);
+        clearInterval(zfIn);
+        switch (isZf) {
+            case "":
+                zfFun();
+                break;
+            case 1:
+            case '1':
+                zfFun();
+                break;
+            case 0:
+            case '0':
+                dfFun();
+                break;
+        }
+    });
+
+
+    function zfFun(){
+        isZf = 1;
+        clearInterval(dfIn);
+        $('img').attr('src',"img/lei%20(1).png");
+        a = 1;
+        zfIn = setInterval(function(){
+            if(a>27){
+                a = 1;
+            }
+            $('img').attr('src',"img/lei%20("+a+").png");
+            a++;
+        },timeNum);
+        console.log('1')
+    }
+
+    function dfFun(){
+        isZf = 0;
+        clearInterval(zfIn);
+        $('img').attr('src',"img/lei%20(27).png");
+        a = 27;
+        dfIn = setInterval(function(){
+            if(a<1){
+                a = 27;
+            }
+            $('img').attr('src',"img/lei%20("+a+").png");
+            a--;
+        },timeNum);
+    }
+</script>
+</html>
