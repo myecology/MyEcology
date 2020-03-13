@@ -15,10 +15,10 @@ use yii\base\Model;
 
 class Alioss extends Model
 {
-    private  $accessKeyId = 'LTAI4FuRcHDARqE9fpoGgoQZ';
-    private  $accessKeySecret = 'Nk69tilGLtITwusaRsFKYhaiKtuBfs';
-    private  $endpoint = "https://oss-cn-zhangjiakou.aliyuncs.com";
-    private  $bucket = "antcimages";
+    private  $accessKeyId = '';
+    private  $accessKeySecret = '';
+    private  $endpoint = "";
+    private  $bucket = "";
     public  $object;
     public  $content;
     public $image;
